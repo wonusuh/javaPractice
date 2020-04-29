@@ -7,19 +7,21 @@ package org.opentutorials.javatutorials.scope;
  * @author YONSAI
  *
  */
-class ScopeDemo {
+public class ScopeDemoSecond {
 
 	/**
 	 * @param args
 	 */
 
+	static int i; // global variable
+
 	static void a() {
-		int i = 0; // local variable
+		i = 0;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 5; i++) {
+		for (i = 0; i < 5; i++) {
 			a();
 			System.out.println(i);
 		}

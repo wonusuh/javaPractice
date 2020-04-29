@@ -7,22 +7,20 @@ package org.opentutorials.javatutorials.scope;
  * @author YONSAI
  *
  */
-class ScopeDemo {
+public class ScopeDemoFourth {
 
 	/**
 	 * @param args
 	 */
 
 	static void a() {
-		int i = 0; // local variable
+		String title = "coding everyday";
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < 5; i++) {
-			a();
-			System.out.println(i);
-		}
+		a();
+		// System.out.println(title);
 
 	}
 
