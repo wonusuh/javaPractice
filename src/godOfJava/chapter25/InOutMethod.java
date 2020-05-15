@@ -14,6 +14,7 @@ public class InOutMethod {
 		System.out.println("문자열을 입력하세요");
 		String s = scann.next();
 		System.out.println(s);
+		scann.close();
 	}
 
 }
