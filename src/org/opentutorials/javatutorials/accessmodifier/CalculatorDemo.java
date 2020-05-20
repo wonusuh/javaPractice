@@ -1,12 +1,4 @@
-/**
- * 
- */
 package org.opentutorials.javatutorials.accessmodifier;
-
-/**
- * @author YONSAI
- *
- */
 
 class Calculator {
 	private int left, right;
@@ -30,10 +22,6 @@ class Calculator {
 }
 
 public class CalculatorDemo {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Calculator cFirst = new Calculator();
@@ -41,5 +29,4 @@ public class CalculatorDemo {
 		cFirst.sumDecoPlus();
 		cFirst.sumDecoMinus();
 	}
-
 }
