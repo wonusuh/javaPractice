@@ -1,13 +1,13 @@
 /**
  * 
  */
-package org.opentutorials.javatutorialssecond.condition;
+package org.opentutorials.javatutorialssecond.conditionoperator;
 
 /**
  * @author user
  *
  */
-public class LoginDemo2 {
+public class LoginDemo3 {
 
 	/**
 	 * @param args
@@ -18,12 +18,8 @@ public class LoginDemo2 {
 		String id = args[0];
 		String password = args[1];
 
-		if (id.equals("egoing")) {
-			if (password.equals("111111")) {
-				System.out.println("rignt");
-			} else {
-				System.out.println("worng");
-			}
+		if (id.equals("egoing") && password.equals("111111")) {
+			System.out.println("rignt");
 		} else {
 			System.out.println("wrong");
 		}
