@@ -153,7 +153,6 @@ public class Method {
 
 		String[] members = getMembers();
 		System.out.println(members);
-		
 
 	}
 
