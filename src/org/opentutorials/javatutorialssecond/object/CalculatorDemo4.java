@@ -1,5 +1,12 @@
+/**
+ * 
+ */
 package org.opentutorials.javatutorialssecond.object;
 
+/**
+ * @author user
+ *
+ */
 class Calculator {
 	int left, right;
 
@@ -19,6 +26,9 @@ class Calculator {
 
 public class CalculatorDemo4 {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Calculator c1 = new Calculator();
