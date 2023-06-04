@@ -7,7 +7,7 @@ package org.opentutorials.javatutorialssecond.object;
  * @author user
  *
  */
-public class CalculatorDemo {
+public class CalculatorDemo1 {
 
 	/**
 	 * @param args

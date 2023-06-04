@@ -8,6 +8,7 @@ package org.opentutorials.javatutorialssecond.object;
  *
  */
 public class CalculatorDemo3 {
+
 	/**
 	 * @param args
 	 */
@@ -21,7 +22,10 @@ public class CalculatorDemo3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int left = 10, right = 20;
+		int left, right;
+
+		left = 10;
+		right = 20;
 		sum(left, right);
 		avg(left, right);
 
@@ -29,5 +33,7 @@ public class CalculatorDemo3 {
 		right = 40;
 		sum(left, right);
 		avg(left, right);
+
 	}
+
 }
