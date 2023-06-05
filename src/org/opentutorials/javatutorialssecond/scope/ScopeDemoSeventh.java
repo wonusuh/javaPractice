@@ -27,3 +27,4 @@ public class ScopeDemoSeventh {
 		cFirst.m();
 	}
 }
+// branch modified
