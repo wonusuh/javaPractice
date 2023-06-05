@@ -8,11 +8,9 @@ package org.opentutorials.javatutorials.scope;
  *
  */
 public class ScopeDemoSixth {
-
 	/**
 	 * @param args
 	 */
-
 	static int i = 5;
 
 	static void a() {
@@ -29,7 +27,5 @@ public class ScopeDemoSixth {
 		// TODO Auto-generated method stub
 		int i = 1;
 		a();
-
 	}
-
 }
