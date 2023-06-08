@@ -23,6 +23,7 @@ public class CalculatorDemoFourth {
 		c1.setOperands(10, 20);
 		c1.sum();
 		c1.avg();
+
 		Calculator c2 = new Calculator();
 		c2.setOperands(40, 80);
 		c2.sum();
