@@ -1,5 +1,19 @@
 package org.opentutorials.javatutorialssecond.exception;
 
+class DivideException extends Exception {
+	int left, right;
+
+	DivideException() {
+		super();
+	}
+
+	DivideException(String message, int left, int right) {
+		super(message);
+		this.left = left;
+		this.right = right;
+	}
+}
+
 class Calculator {
 	int left, right;
 
@@ -8,15 +22,10 @@ class Calculator {
 		this.right = right;
 	}
 
-	public void devide() {
-		try {
-			System.out.println("계산결과는 ");
-			System.out.println(this.left / this.right);
-			System.out.println(" 입니다.");
-		} catch (Exception e) {
-			System.out.println("\n\ne.getMessage()\n" + e.getMessage());
+	public void divide() throws DivideException {
+		if (this.right == 0) {
+			throw new DivideException("0으로 나눌 수 없습니다.", this.left, this.right);
 		}
-		System.out.println("Divided");
 	}
 }
 
@@ -24,6 +33,12 @@ public class CalculatorDemo {
 	public static void main(String[] args) {
 		Calculator c1 = new Calculator();
 		c1.setOperands(10, 0);
-		c1.devide();
+		try {
+			c1.divide();
+		} catch (DivideException e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.left);
+			System.out.println(e.right);
+		}
 	}
 }
