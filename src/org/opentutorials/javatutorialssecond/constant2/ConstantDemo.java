@@ -1,30 +1,32 @@
 package org.opentutorials.javatutorialssecond.constant2;
 
-class Fruit {
-	public static final Fruit APPLE = new Fruit();
-	public static final Fruit PEACH = new Fruit();
-	public static final Fruit BANANA = new Fruit();
+enum Fruit {
+	APPLE("red"), PEACH("pink"), BANANA("yellow");
+
+	public String color;
+
+	Fruit(String color) {
+		this.color = color;
+		System.out.println("Call Constructor " + this);
+	}
 }
 
-class Company {
-	public static final Company GOOGLE = new Company();
-	public static final Company APPLE = new Company();
-	public static final Company ORACLE = new Company();
+enum Company {
+	GOOLE, APPLE, ORACLE;
 }
 
 public class ConstantDemo {
 	public static void main(String[] args) {
-		Fruit type = new Fruit();
-		type = type.APPLE;
+		Fruit type = Fruit.APPLE;
 		switch (type) {
-		case Fruit.APPLE:
-			System.out.println(57 + " kcal");
+		case APPLE:
+			System.out.println(57 + " kcal, " + Fruit.APPLE.color);
 			break;
-		case Fruit.PEACH:
-			System.out.println(34 + " kcal");
+		case PEACH:
+			System.out.println(34 + " kcal, " + Fruit.PEACH.color);
 			break;
-		case Fruit.BANANA:
-			System.out.println(93 + " kcal");
+		case BANANA:
+			System.out.println(93 + " kcal, " + Fruit.BANANA.color);
 			break;
 		}
 	}
