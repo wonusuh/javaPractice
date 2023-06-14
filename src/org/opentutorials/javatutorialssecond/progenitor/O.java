@@ -7,5 +7,5 @@ package org.opentutorials.javatutorialssecond.progenitor;
  * @author user
  *
  */
-class O {
+class O extends Object {
 }
