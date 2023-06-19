@@ -1,4 +1,4 @@
-package org.opentutorials.javatutorialsthird;
+package org.opentutorials.javatutorialsthird.condition;
 
 public class Condition1Demo {
 	public static void main(String[] args) {
