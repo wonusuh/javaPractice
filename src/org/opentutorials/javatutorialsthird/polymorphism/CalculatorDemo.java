@@ -1,4 +1,4 @@
-package org.opentutorials.javatutorialsthird.abstractclass.example3;
+package org.opentutorials.javatutorialsthird.polymorphism;
 
 abstract class Calculator {
 	int left, right;
@@ -51,10 +51,15 @@ class CalculatorDecoMinus extends Calculator {
 }
 
 public class CalculatorDemo {
+	public static void excute(Calculator cal) {
+		System.out.println("실행결과");
+		cal.run();
+	}
+
 	public static void main(String[] args) {
-		CalculatorDecoPlus c1 = new CalculatorDecoPlus(10, 20);
-		c1.run();
-		CalculatorDecoMinus c2 = new CalculatorDecoMinus(10, 20);
-		c2.run();
+		Calculator c1 = new CalculatorDecoPlus(10, 20);
+		Calculator c2 = new CalculatorDecoMinus(20, 40);
+		excute(c1);
+		excute(c2);
 	}
 }
