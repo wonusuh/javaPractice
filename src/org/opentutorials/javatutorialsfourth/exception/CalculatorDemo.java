@@ -24,9 +24,9 @@ class Calculator {
 
 	public void divide() throws DivideException {
 		if (this.right == 0) {
-			throw new DivideException("Dividing a number by 0 is not allowed.", this.left, this.right);
+			throw new DivideException("Diving by 0 is not allowed.", this.left, this.right);
 		}
-		System.out.println(this.left / this.right);
+		System.out.print(this.left / this.right);
 	}
 }
 
@@ -36,7 +36,7 @@ public class CalculatorDemo {
 		try {
 			c1.divide();
 		} catch (DivideException e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.toString());
 			System.out.println(e.left);
 			System.out.println(e.right);
 		}
