@@ -6,8 +6,8 @@ public class DivisionDemo {
 		int b = 3;
 		float c = (float) 10.0;
 		float d = (float) 3.0;
-		System.out.println(a / b);
-		System.out.println(c / d);
-		System.out.println(a / d);
+		System.out.println(a / b); // 3
+		System.out.println(c / d); // 3.3333....
+		System.out.println(a / d); // 3.3333....
 	}
 }
