@@ -5,7 +5,7 @@ public class LoginDemo {
 		String id = args[0];
 		String password = args[1];
 		if (id.equals("egoing") || id.equals("choi") || id.equals("han") && password.equals("111111")) {
-			System.out.println("right");
+			System.out.println("·Î±×ÀÎ right");
 		} else {
 			System.out.println("id or password wrong");
 		}
