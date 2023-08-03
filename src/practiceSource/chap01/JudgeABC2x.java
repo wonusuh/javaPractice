@@ -1,5 +1,5 @@
 // 입력한 정숫값을 판단(2)(2의 본모습)
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

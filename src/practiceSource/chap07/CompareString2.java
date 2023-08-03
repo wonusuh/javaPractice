@@ -1,5 +1,5 @@
 // 문자열의 대소관계를 판단
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

@@ -1,5 +1,5 @@
 // 신체검사 데이터 배열의 정렬
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Arrays;
 import java.util.Scanner;

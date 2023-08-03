@@ -1,5 +1,5 @@
 // 체인법에 의한 해시 사용 예
-package practiceSource.chap10;
+package practicesource.chap10;
 
 import java.util.Scanner;
 

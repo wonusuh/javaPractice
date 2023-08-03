@@ -1,5 +1,5 @@
 // 보이어-무어법으로 문자열 검색
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

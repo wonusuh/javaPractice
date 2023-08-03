@@ -1,5 +1,5 @@
 // 팩토리얼 값을 재귀적으로 구함(조건 연산자를 사용)
-package practiceSource.chap05;
+package practicesource.chap05;
 
 import java.util.Scanner;
 

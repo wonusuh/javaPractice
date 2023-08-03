@@ -1,5 +1,5 @@
 // 배열의 모든 요소의 합을 구하여 출력(확장 for 문）
-package practiceSource.chap02;
+package practicesource.chap02;
 
 class ArraySumForIn {
     public static void main(String[] args) {

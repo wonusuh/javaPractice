@@ -1,5 +1,5 @@
 // 제네릭(범용) 클래스의 예
-package practiceSource.chap03;
+package practicesource.chap03;
 
 class GenericClassTester {
     //제네릭 클래스의 매개변수를 T라고 작성함

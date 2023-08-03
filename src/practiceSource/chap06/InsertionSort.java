@@ -1,5 +1,5 @@
 // 단순 삽입 정렬
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

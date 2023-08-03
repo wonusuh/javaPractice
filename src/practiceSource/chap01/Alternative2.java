@@ -1,5 +1,5 @@
 // +와 -를 번갈아 출력(2)
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

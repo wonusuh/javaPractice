@@ -1,5 +1,5 @@
 // 재귀에 대한 이해를 돕는 순수 재귀 메서드(재귀를 제거)
-package practiceSource.chap05;
+package practicesource.chap05;
 
 import java.util.Scanner;
 

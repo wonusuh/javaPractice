@@ -1,5 +1,5 @@
 // 각 행과 열에 퀸 1개를 배치하는 조합을 재귀적으로 나열
-package practiceSource.chap05;
+package practicesource.chap05;
 
 class QueenBB {
     static boolean[] flag = new boolean[8];        // 각 행에 퀸이 이미 배치되었는가?

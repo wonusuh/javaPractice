@@ -1,5 +1,5 @@
 // 신체검사 데이터용 클래스 배열에서 평균 키와 시력의 분포를 구함
-package practiceSource.chap02;
+package practicesource.chap02;
 
 import java.util.Scanner;
 

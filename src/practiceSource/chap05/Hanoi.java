@@ -1,5 +1,5 @@
 // 하노이의 탑
-package practiceSource.chap05;
+package practicesource.chap05;
 
 import java.util.Scanner;
 

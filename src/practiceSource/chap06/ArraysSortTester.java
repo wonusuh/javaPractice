@@ -1,5 +1,5 @@
 // Arrays.sort에 의한 정렬(퀵 정렬)
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Arrays;
 import java.util.Scanner;

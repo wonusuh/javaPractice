@@ -1,5 +1,5 @@
 // 신체검사 데이터 배열에서 이진 검색
-package practiceSource.chap03;
+package practicesource.chap03;
 
 import java.util.Arrays;
 import java.util.Scanner;

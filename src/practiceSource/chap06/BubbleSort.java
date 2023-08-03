@@ -1,5 +1,5 @@
 // 버블 정렬(단순 교환 정렬) (버전 1)
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

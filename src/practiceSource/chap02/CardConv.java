@@ -1,5 +1,5 @@
 // 입력받은 10진수를 2진수 ~ 36진수로 기수 변환하여 출력
-package practiceSource.chap02;
+package practicesource.chap02;
 
 import java.util.Scanner;
 

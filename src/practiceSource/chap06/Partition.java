@@ -1,5 +1,5 @@
 // 배열을 나눔
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

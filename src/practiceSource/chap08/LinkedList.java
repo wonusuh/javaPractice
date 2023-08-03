@@ -1,5 +1,5 @@
 // 연결 리스트 클래스
-package practiceSource.chap08;
+package practicesource.chap08;
 
 import java.util.Comparator;
 

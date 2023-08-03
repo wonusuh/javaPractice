@@ -1,5 +1,5 @@
 // 2자리의 양수(10 ~ 99)를 입력
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

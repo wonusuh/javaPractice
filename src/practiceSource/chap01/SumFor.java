@@ -1,5 +1,5 @@
 // for 문으로 1, 2, …, n의 합을 구함
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

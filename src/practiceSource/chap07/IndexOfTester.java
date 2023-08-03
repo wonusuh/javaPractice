@@ -1,5 +1,5 @@
 // String.indexOf, String.lastIndexOf 메서드로 문자열 검색
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

@@ -1,5 +1,5 @@
 // int형 고정 길이 스택
-package practiceSource.chap04;
+package practicesource.chap04;
 
 public class IntStack {
     private int[] stk;           // 스택용 배열

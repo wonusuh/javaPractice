@@ -1,5 +1,5 @@
 // 선형리스트 클래스 LinkedList<E>의 사용 예
-package practiceSource.chap08;
+package practicesource.chap08;
 
 import java.util.Scanner;
 import java.util.Comparator;

@@ -1,5 +1,5 @@
 // 셸 정렬(버전 1)
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

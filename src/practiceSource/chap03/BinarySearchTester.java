@@ -1,5 +1,5 @@
 // Arrays.binarySearch로 이진 검색
-package practiceSource.chap03;
+package practicesource.chap03;
 
 import java.util.Arrays;
 import java.util.Scanner;

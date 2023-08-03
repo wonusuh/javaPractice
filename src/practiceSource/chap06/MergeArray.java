@@ -1,5 +1,5 @@
 // 정렬을 완료한 배열의 병합
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

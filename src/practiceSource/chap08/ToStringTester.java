@@ -1,5 +1,5 @@
 //toString 메서드의 오버라이드 차이점 확인
-package practiceSource.chap08;
+package practicesource.chap08;
 
 class A {
     // toString을 정의하지 않음

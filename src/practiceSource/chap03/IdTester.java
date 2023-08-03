@@ -1,5 +1,5 @@
 // 아이디를 부여하는 클래스
-package practiceSource.chap03;
+package practicesource.chap03;
 
 class Id {
     private static int counter = 0;        //아이디를 몇 개 부여했는지 저장

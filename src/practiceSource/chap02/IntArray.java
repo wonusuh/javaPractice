@@ -1,5 +1,5 @@
 // 구성 요소의 자료형이 int형인 배열(구성 요솟수는 ５: new에 의해 본체를 생성）
-package practiceSource.chap02;
+package practicesource.chap02;
 
 class IntArray {
     public static void main(String[] args) {

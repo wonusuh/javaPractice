@@ -1,5 +1,5 @@
 // 힙 정렬
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

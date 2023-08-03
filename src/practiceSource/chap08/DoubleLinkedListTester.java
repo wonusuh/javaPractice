@@ -1,5 +1,5 @@
 // 원형 이중 연결 리스트 클래스 DoubleLinkedList<E>의 사용 예
-package practiceSource.chap08;
+package practicesource.chap08;
 
 import java.util.Scanner;
 import java.util.Comparator;

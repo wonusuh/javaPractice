@@ -1,5 +1,5 @@
 // 재귀 함수를 메모화로 구현
-package practiceSource.chap05;
+package practicesource.chap05;
 
 import java.util.Scanner;
 

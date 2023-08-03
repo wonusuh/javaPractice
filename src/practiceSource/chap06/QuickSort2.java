@@ -1,5 +1,5 @@
 // 퀵 정렬(비재귀 버전)
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

@@ -1,5 +1,5 @@
 // 부분 문자열을 꺼냄
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

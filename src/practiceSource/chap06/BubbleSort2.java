@@ -1,5 +1,5 @@
 // 버블 환정렬(버전 2: 교환 횟수에 따른 멈춤)
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

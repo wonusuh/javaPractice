@@ -1,5 +1,5 @@
 // 이진검색트리
-package practiceSource.chap09;
+package practicesource.chap09;
 
 import java.util.Comparator;
 

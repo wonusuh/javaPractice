@@ -1,5 +1,5 @@
 // 달력의 배열을 정렬
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Arrays;
 import java.util.GregorianCalendar;

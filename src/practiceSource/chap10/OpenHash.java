@@ -1,5 +1,5 @@
 // 오픈 주소법에 의한 해시
-package practiceSource.chap10;
+package practicesource.chap10;
 
 public class OpenHash<K,V> {
 

@@ -1,5 +1,5 @@
 // *를 n개 출력하되 w개마다 줄 바꿈(1)
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

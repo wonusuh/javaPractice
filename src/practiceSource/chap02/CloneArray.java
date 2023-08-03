@@ -1,5 +1,5 @@
 // 배열의 복제 배열을 만듭니다.
-package practiceSource.chap02;
+package practicesource.chap02;
 
 import java.util.Arrays;
 

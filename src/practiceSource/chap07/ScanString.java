@@ -1,5 +1,5 @@
 // 문자열을 1 문자씩 스캔하여 표시
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

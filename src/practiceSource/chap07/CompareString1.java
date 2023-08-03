@@ -1,5 +1,5 @@
 // 문자열의 비교
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

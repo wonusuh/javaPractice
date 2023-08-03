@@ -1,5 +1,5 @@
 // 1,000 이하의 소수를 나열(버전 1）
-package practiceSource.chap02;
+package practicesource.chap02;
 
 class PrimeNumber1 {
     public static void main(String[] args) {

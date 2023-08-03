@@ -1,5 +1,5 @@
 // 1, 2, …, n 의 합을 구합니다.(구하는 과정의 식을 출력 :２[개선])
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

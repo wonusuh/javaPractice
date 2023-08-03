@@ -1,5 +1,5 @@
 // 선형 검색(보초법)
-package practiceSource.chap03;
+package practicesource.chap03;
 
 import java.util.Scanner;
 

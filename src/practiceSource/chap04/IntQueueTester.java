@@ -1,5 +1,5 @@
 // int형 고정 길이 큐의 사용 예
-package practiceSource.chap04;
+package practicesource.chap04;
 
 import java.util.Scanner;
 

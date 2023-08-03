@@ -1,5 +1,5 @@
 // 입력한 정숫값의 부호(양수/음수/0)를 판단
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

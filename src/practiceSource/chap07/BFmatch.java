@@ -1,5 +1,5 @@
 // 브루트-포스법에 의한 문자열 검색
-package practiceSource.chap07;
+package practicesource.chap07;
 
 import java.util.Scanner;
 

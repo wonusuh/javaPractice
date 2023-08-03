@@ -1,5 +1,5 @@
 //왼쪽 아래가 직각인 이등변삼각형을 출력
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

@@ -1,5 +1,5 @@
 // 배열 요소의 최댓값 출력(값을 입력받음)
-package practiceSource.chap02;
+package practicesource.chap02;
 
 import java.util.Scanner;
 

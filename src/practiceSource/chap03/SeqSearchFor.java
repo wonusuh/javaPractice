@@ -1,5 +1,5 @@
 // 선형검색(for문)
-package practiceSource.chap03;
+package practicesource.chap03;
 
 import java.util.Scanner;
 

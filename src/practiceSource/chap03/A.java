@@ -1,5 +1,5 @@
 // 자연 정렬을 하려면 다음과 같은 패턴으로 클래스를 정의(예)
-package practiceSource.chap03;
+package practicesource.chap03;
 
 class A implements Comparable<A> {
 

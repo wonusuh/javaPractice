@@ -1,5 +1,5 @@
 // int형 고정 길이 큐
-package practiceSource.chap04;
+package practicesource.chap04;
 
 public class IntQueue {
     private int[] que;            // 큐용 배열

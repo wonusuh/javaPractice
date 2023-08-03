@@ -1,5 +1,5 @@
 // 이중 루프로 구구단 곱셈표를 출력
-package practiceSource.chap01;
+package practicesource.chap01;
 
 public class Multi99Table {
     public static void main(String[] args) {

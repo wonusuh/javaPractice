@@ -1,5 +1,5 @@
 // 원하는 개수만큼 값을 계속 입력받고, 요솟수가 N인 배열에 마지막 N개를 저장
-package practiceSource.chap04;
+package practicesource.chap04;
 
 import java.util.Scanner;
 

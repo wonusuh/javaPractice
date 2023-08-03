@@ -1,5 +1,5 @@
 // 유클리드 호제법으로 최대공약수를 구함
-package practiceSource.chap05;
+package practicesource.chap05;
 
 import java.util.Scanner;
 

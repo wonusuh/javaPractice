@@ -1,5 +1,5 @@
 // 오픈 주소법에 의한 해시의 사용 예
-package practiceSource.chap10;
+package practicesource.chap10;
 
 import java.util.Scanner;
 

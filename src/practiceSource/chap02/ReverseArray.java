@@ -1,5 +1,5 @@
 // 배열 요소에 값을 읽어 들여 역순으로 정렬
-package practiceSource.chap02;
+package practicesource.chap02;
 
 import java.util.Arrays;
 import java.util.Scanner;

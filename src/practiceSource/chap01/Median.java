@@ -1,5 +1,5 @@
 // 3개의 정숫값을 입력하고 중앙값을 구하여 출력
-package practiceSource.chap01;
+package practicesource.chap01;
 
 import java.util.Scanner;
 

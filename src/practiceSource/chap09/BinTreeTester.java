@@ -1,5 +1,5 @@
 // 이진검색트리클래스BinTree<K,V>의 사용 예
-package practiceSource.chap09;
+package practicesource.chap09;
 
 import java.util.Scanner;
 

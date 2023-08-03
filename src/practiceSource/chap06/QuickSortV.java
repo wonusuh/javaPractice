@@ -1,5 +1,5 @@
 // 퀵 정렬(배열의 분할 과정을 표시)
-package practiceSource.chap06;
+package practicesource.chap06;
 
 import java.util.Scanner;
 

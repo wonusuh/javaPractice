@@ -1,5 +1,5 @@
 // 8퀸 문제 풀이
-package practiceSource.chap05;
+package practicesource.chap05;
 
 class EightQueen {
     static boolean[] flag_a = new boolean[8];     // 각 행에 퀸이 이미 배치되었는가?
