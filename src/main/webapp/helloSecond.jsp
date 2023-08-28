@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hello World</title>
+<title>Hello World Second</title>
 </head>
 <body>
-	<h2>Hello World</h2>
+	<h2>Hello World Second</h2>
+	<hr>
 	현재 날짜와 시간은
 	<%=java.time.LocalDateTime.now()%>
 	입니다.
