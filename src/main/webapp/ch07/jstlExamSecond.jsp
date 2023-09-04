@@ -14,7 +14,7 @@
 	<h3>set, out</h3>
 	<c:set var="product1" value="<h2>애플 아이폰</h2>" />
 	<c:set var="product2" value="삼성 갤럭시 노트" />
-	<c:set var="intArray" value="${[1, 2, 3, 4, 5]}" />
+	<%-- <c:set var="intArray" value="${[1, 2, 3, 4, 5]}" /> --%>
 	<p>
 		product1(jstl) :
 		<c:out value="${product1}" default="Not registered" escapeXml="true" />
