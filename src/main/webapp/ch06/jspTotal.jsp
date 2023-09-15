@@ -21,7 +21,7 @@
 	</h3>
 	<hr>
 	<h3>3. include : hello.jsp</h3>
-	<%@ include file="../hello.jsp"%>
+	<%@ include file="../helloSecond.jsp"%>
 	<hr>
 	<h3>4. 스크립트 (배열 데이터 출력)</h3>
 	<%!String[] members = { "김길동", "홍길동", "김사랑", "박사랑" };
