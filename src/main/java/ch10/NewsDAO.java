@@ -3,6 +3,10 @@ package ch10;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewsDAO {
 	final String JDBC_DRIVER = "org.h2.Driver";
@@ -28,6 +32,43 @@ public class NewsDAO {
 			pstmt.setString(2, n.getImg());
 			pstmt.setString(3, n.getContent());
 			pstmt.executeUpdate();
+		}
+	}
+
+	public List<News> getAll() throws Exception {
+		Connection conn = open();
+		List<News> newsList = new ArrayList<>();
+		String sql = "SELECT aid, title, PARSEDATETIME(date, 'yyyy-MM-dd hh:mm:ss') as cdate FROM news";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		try (conn; pstmt; rs) {
+			while (rs.next()) {
+				News n = new News();
+				n.setAid(rs.getInt("aid"));
+				n.setTitle(rs.getString("title"));
+				n.setDate(rs.getString("cdate"));
+				newsList.add(n);
+			}
+		}
+		return newsList;
+	}
+
+	public News getNews(int aid) throws SQLException {
+		Connection conn = open();
+		News n = new News();
+		String sql = "SELECT aid, title, img, PARSEDATETIME(date, 'yyyy-MM-dd hh:mm:ss') as cdate, content FROM news where aid=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, aid);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		try (conn; pstmt; rs) {
+			n.setAid(rs.getInt("aid"));
+			n.setTitle(rs.getString("title"));
+			n.setImg(rs.getString("img"));
+			n.setDate(rs.getString("cdate"));
+			n.setContent(rs.getString("content"));
+			// pstmt.executeQuery();
+			return n;
 		}
 	}
 }
