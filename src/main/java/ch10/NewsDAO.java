@@ -71,4 +71,16 @@ public class NewsDAO {
 			return n;
 		}
 	}
+
+	public void delNews(int aid) throws SQLException {
+		Connection conn = open();
+		String sql = "DELETE FROM news WHERE aid=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try (conn; pstmt;) {
+			pstmt.setInt(1, aid);
+			if (pstmt.executeUpdate() == 0) {
+				throw new SQLException("DB에러");
+			}
+		}
+	}
 }
