@@ -1,6 +1,5 @@
 package ch10;
 
-// import
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,7 +28,7 @@ public class NewsDAO {
 		Connection conn = open();
 		List<News> newsList = new ArrayList<>();
 
-		String sql = "select aid, title, PARSEDATETIME(date,'yyyy-MM-dd hh:mm:ss') as cdate from news";
+		String sql = "select aid, title from news"; // PARSEDATETIME(date, 'yyyy-MM-dd hh:mm:ss') as cdate
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 
@@ -38,7 +37,7 @@ public class NewsDAO {
 				News n = new News();
 				n.setAid(rs.getInt("aid"));
 				n.setTitle(rs.getString("title"));
-				n.setDate(rs.getString("cdate"));
+				// n.setDate(rs.getString("cdate"));
 
 				newsList.add(n);
 			}
@@ -50,7 +49,7 @@ public class NewsDAO {
 		Connection conn = open();
 
 		News n = new News();
-		String sql = "select aid, title, img, PARSEDATETIME(date,'yyyy-MM-dd hh:mm:ss') as cdate, content from news where aid=?";
+		String sql = "select aid, title, img, content from news where aid=?"; // , PARSEDATETIME(date,'yyyy-MM-dd hh:mm:ss') as cdate,
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, aid);
@@ -62,7 +61,7 @@ public class NewsDAO {
 			n.setAid(rs.getInt("aid"));
 			n.setTitle(rs.getString("title"));
 			n.setImg(rs.getString("img"));
-			n.setDate(rs.getString("cdate"));
+			// n.setDate(rs.getString("cdate"));
 			n.setContent(rs.getString("content"));
 			pstmt.executeQuery();
 			return n;

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import org.apache.commons.beanutils.BeanUtils;
 
-@WebServlet("/news.nhn")
+@WebServlet(urlPatterns = "/news.nhn")
 @MultipartConfig(maxFileSize = 1024 * 1024 * 2, location = "c:/Temp/img")
 public class NewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -99,21 +99,6 @@ public class NewsController extends HttpServlet {
 			request.setAttribute("error", "뉴스가 정상적으로 등록되지 않았습니다!!");
 			return listNews(request);
 		}
-
-		return "redirect:/news.nhn?action=listNews";
-
-	}
-
-	public String deleteNews(HttpServletRequest request) {
-		int aid = Integer.parseInt(request.getParameter("aid"));
-		try {
-			dao.delNews(aid);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			ctx.log("뉴스 삭제 과정에서 문제 발생!!");
-			request.setAttribute("error", "뉴스가 정상적으로 삭제되지 않았습니다!!");
-			return listNews(request);
-		}
 		return "redirect:/news.nhn?action=listNews";
 	}
 
@@ -128,6 +113,19 @@ public class NewsController extends HttpServlet {
 			request.setAttribute("error", "뉴스 목록이 정상적으로 처리되지 않았습니다!!");
 		}
 		return "ch10/newsList.jsp";
+	}
+
+	public String deleteNews(HttpServletRequest request) {
+		int aid = Integer.parseInt(request.getParameter("aid"));
+		try {
+			dao.delNews(aid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			ctx.log("뉴스 삭제 과정에서 문제 발생!!");
+			request.setAttribute("error", "뉴스가 정상적으로 삭제되지 않았습니다!!");
+			return listNews(request);
+		}
+		return "redirect:/news.nhn?action=listNews";
 	}
 
 	public String getNews(HttpServletRequest request) {
