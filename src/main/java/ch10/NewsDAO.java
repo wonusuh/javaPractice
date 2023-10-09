@@ -71,7 +71,7 @@ public class NewsDAO {
 	public void addNews(News n) throws Exception {
 		Connection conn = open();
 
-		String sql = "insert into news(title,img,date,content) values(?,?,CURRENT_TIMESTAMP(),?)";
+		String sql = "insert into news(title, img, date, content) values(?, ?, CURRENT_TIMESTAMP(), ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		try (conn; pstmt) {
