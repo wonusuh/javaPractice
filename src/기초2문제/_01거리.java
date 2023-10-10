@@ -10,8 +10,10 @@ package 기초2문제;
 public class _01거리 {
 	public static void main(String[] args) {
 		// 풀이
-		// 2시간 = 120분
+		// 2시간 = 4 * 30분
 		// 65040 / 4
-		System.out.println(65040 / 4 + "미터");
+		int 두시간거리 = 65040;
+		int 거리30분 = 두시간거리 / 4;
+		System.out.println(거리30분 + "미터");
 	}
 }
