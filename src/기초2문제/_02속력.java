@@ -14,6 +14,7 @@ package 기초2문제;
 public class _02속력 {
 
 	public static void main(String[] args) {
+		
 		// 870m : 40분 = x : 1분
 		// 40x = 870
 		// 분 = 870/40
@@ -62,5 +63,16 @@ public class _02속력 {
 		double distanceKM = distanceMeter * 1000;
 		System.out.println(distanceMeter);
 		System.out.println(distanceKM);
+		/* 
+	      [문제2] 
+		철수는 시속 3km의 속도로 37분간 걸어갔다. 
+		철수가 이동한 거리는 몇km 인가?
+		철수가 이동한 거리는 몇m 인가?	
+		
+		  60분 : 3km = 1분 : xkm 
+		  3= 60x;
+		  x = 3/60
+		  x => 분속
+	     */
 	}
 }

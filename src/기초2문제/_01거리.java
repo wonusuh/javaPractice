@@ -7,6 +7,14 @@ package 기초2문제;
        
  [정답] 16260미터
 */
+/*
+풀이 
+4 : 65040 = 1 : x  
+
+65040*1 = 4x
+x = 65040/4.0
+
+*/
 public class _01거리 {
 	public static void main(String[] args) {
 		// 풀이
