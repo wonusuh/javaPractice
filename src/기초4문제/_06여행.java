@@ -1,57 +1,38 @@
 package 기초4문제;
 
-/*
-[문제]
-	고속버스를 타고 여행을 떠나려한다.
-	출발시간까지 1시간 여유가 있다.
-	고속버스역과 상점을 시속 3km를 걸어서 왕복을 하고
-	10분 동안 물건을 산다고 하면
-	역에서 1.3km 떨어진 상점을 다녀올 수 있는지 여부를 판단해서
-	
-	물건 살수 있음 
-	물건 살수 없음을 출력하시오 
-	
-	정답 62분이 걸려서 물건 살 수없음
-	
-	*/
+//[문제]
+//	고속버스를 타고 여행을 떠나려한다.
+//	출발시간까지 1시간 여유가 있다.
+//	고속버스역과 상점을 시속 3km를 걸어서 왕복을 하고
+//	10분 동안 물건을 산다고 하면
+//	역에서 1.3km 떨어진 상점을 다녀올 수 있는지 여부를 판단해서
+//	
+//	물건 살수 있음 
+//	물건 살수 없음을 출력하시오 
+//	
+//	[정답] 62분이 걸려서 물건 살 수없음
 public class _06여행 {
-
 	public static void main(String[] args) {
+		// dis = vel * time
+		// 시속을 분속으로 바꾸기
+		// 60min : 3km = 1min : nkm
+		// 60n = 3
+		// n= 3/60
+		// 분속 =0.05
+		double spareMin = 60.0;
+		System.out.println("여유시간 : " + spareMin + "분");
+		double shoppingTime = 10;
+		System.out.println("쇼핑시간 : " + shoppingTime + "분");
+		double distance = 1.3;
+		double minVel = 3 / 60.0;
+		// 거 = 시 * 속
+		// 시간 = 거리 / 속력
+		double twiceMin = (distance / minVel) * 2;
+		System.out.println("왕복시간 : " + twiceMin + "분");
+		double totalMin = shoppingTime + twiceMin;
+		System.out.println("총 걸리는 시간 : " + totalMin + "분");
 
-		/*
-		 * 
-		 * 풀이 :
-		 * 
-		 * 여유시간 60분 - 쇼핑시간 10분 => 50분
-		 * 
-		 * 시속 3km -> 60분 : 3km = 1분 : x 3 =60x x = 3 / 60 => 0.05km : 1분 걸을수 있는 거리
-		 * 
-		 * 1.3km 역 < ------------------ > 상점(10분)
-		 * 
-		 * 
-		 * 1.3/0.05 => 26분 (편도) 26*2 => 52 + 10 => 62분
-		 * 
-		 * 
-		 */
-
-		double 거리 = 1.3;
-		double 분속 = 3 / 60.0;
-
-		double 편도시간 = 거리 / 분속;
-		double 왕복시간 = 편도시간 * 2;
-		double 쇼핑시간 = 10;
-
-		double 총시간 = 왕복시간 + 쇼핑시간;
-
-		boolean result = 총시간 <= 60;
-
-		if (result) {
-			System.out.println("물건 살수 있음 ");
-		}
-		if (!result) {
-			System.out.println("물건 살수 없음");
-		}
-
+		boolean canOrNot = spareMin >= totalMin;
+		System.out.println("canOrNot : " + canOrNot);
 	}
-
 }
