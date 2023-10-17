@@ -15,21 +15,24 @@ public class 응용5 {
 //			     예) 부모님과 함께 오셨나요?(yes:1, no:0)
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("키를 입력하세요 : ");
-		int height = sc.nextInt();
-		System.out.println("부모님과 함께 오셨나요?(yes:1, no:0)");
-		int parents = sc.nextInt();
+		
 
-		boolean heightCheck = height >= 120;
-		boolean parentsCheck = parents == 1;
-
-		if (heightCheck) {
-			System.out.println("놀이기구 이용가능");
-		} else if (parentsCheck) {
-			System.out.println("부모님과 함께 이용 가능");
-		} else {
-			System.out.println("120미만은 부모님과 함께 이용할 수 있습니다.");
-		}
-		sc.close();
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("키를 입력하세요 : ");
+//		int height = sc.nextInt();
+//		System.out.println("부모님과 함께 오셨나요?(yes:1, no:0)");
+//		int parents = sc.nextInt();
+//
+//		boolean heightCheck = height >= 120;
+//		boolean parentsCheck = parents == 1;
+//
+//		if (heightCheck) {
+//			System.out.println("놀이기구 이용가능");
+//		} else if (parentsCheck) {
+//			System.out.println("부모님과 함께 이용 가능");
+//		} else {
+//			System.out.println("120미만은 부모님과 함께 이용할 수 있습니다.");
+//		}
+//		sc.close();
 	}
 }

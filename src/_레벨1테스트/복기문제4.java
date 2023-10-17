@@ -1,7 +1,5 @@
 package _레벨1테스트;
-
 import java.util.Scanner;
-
 public class 복기문제4 {
 	public static void main(String[] args) {
 //		   [ 문제 4 ]

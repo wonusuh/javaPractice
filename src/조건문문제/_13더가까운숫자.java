@@ -31,10 +31,10 @@ public class _13더가까운숫자 {
 		}
 
 		if (ab < cb) {
-			System.out.println("a가 더 가깝다");
+			System.out.println("a가 b에 더 가깝다");
 		}
 		if (ab > cb) {
-			System.out.println("c가 더 가깝다");
+			System.out.println("c가 b에 더 가깝다");
 		}
 		if (ab == cb) {
 			System.out.println("같다");
