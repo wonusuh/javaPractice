@@ -25,12 +25,16 @@ public class 응용9 {
 //					
 //					23	=>		재시험
 
+//				응용 9번 a , b , + , - 한개씩만 조건 분리해보세요
+//				지금 +, - 가 각각 두번씩 있는것을 수정해보세요
 		Scanner sc = new Scanner(System.in);
 		System.out.println("시험점수를 입력하세요 : ");
 		int input = sc.nextInt();
 		String score = null;
 
 		boolean error = input > 100 || input < 0;
+		boolean plus = input % 10 >= 7;
+		boolean minus = input % 10 >= 7;
 
 		if (error) {
 			System.out.println("점수를 다시 입력하세요. (0~100)");
