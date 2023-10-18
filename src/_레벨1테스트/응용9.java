@@ -33,36 +33,30 @@ public class 응용9 {
 		String score = null;
 
 		boolean error = input > 100 || input < 0;
-		boolean plus = input % 10 >= 7;
-		boolean minus = input % 10 >= 7;
 
 		if (error) {
 			System.out.println("점수를 다시 입력하세요. (0~100)");
 		}
 
 		if (!error) {
-			if (input == 100) {
-				score = "A+";
-			} else if (input <= 99 && input >= 91) {
+			if (input <= 100 && input >= 91) {
 				score = "A";
-				if (input % 10 >= 7) {
-					score += "+";
-				}
-				if (input % 10 <= 3) {
-					score += "-";
-				}
 			} else if (input <= 90 && input >= 81) {
 				score = "B";
-				if (input % 10 >= 7) {
-					score += "+";
-				}
-				if (input % 10 <= 3) {
-					score += "-";
-				}
 			} else {
 				score = "재시험";
 			}
+
 		}
+		if (score == "A" || score == "B") {
+			if (input % 10 >= 7 || input % 10 == 0) {
+				score += "+";
+			}
+			if (input % 10 <= 3 && input % 10 != 0) {
+				score += "-";
+			}
+		}
+
 		System.out.println("score : " + score);
 		sc.close();
 	}
