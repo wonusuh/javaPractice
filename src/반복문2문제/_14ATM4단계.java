@@ -52,7 +52,7 @@ public class _14ATM4단계 {
 
 			if (sel == 1) {
 				if (log != -1) {
-					System.out.println("이미 로그인 중입니다");
+					System.out.println("[ 접근 오류 ]이미 로그인 중입니다");
 					continue;
 				}
 				System.out.println("로그인 합니다");
@@ -83,11 +83,18 @@ public class _14ATM4단계 {
 					continue;
 				}
 				System.out.println("로그아웃 합니다");
+				if (log == 1) {
+					dbMoney1 = myMoney;
+					dbMoney2 = yourMoney;
+				} else if (log == 2) {
+					dbMoney2 = myMoney;
+					dbMoney1 = yourMoney;
+				}
 				log = -1;
 			} else if (sel == 3) {
 				System.out.println("입금");
 				if (log == -1) {
-					System.out.println("로그인중이 아닙니다. 로그인 하세요");
+					System.out.println("[ 접근오류 ]로그인중이 아닙니다. 로그인 하세요");
 					continue;
 				}
 				System.out.println("입금 할 금액을 입력하세요 >>");
