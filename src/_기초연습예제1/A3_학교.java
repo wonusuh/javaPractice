@@ -12,5 +12,11 @@ public class A3_학교 {
 //			[정답]
 //				5,504m
 
+		int toSchool = 2300 * 2;
+		int under = 4 * 2 * 8;
+		int ground = 280 * 3;
+
+		int result = toSchool + under + ground;
+		System.out.println(result + "m");
 	}
 }

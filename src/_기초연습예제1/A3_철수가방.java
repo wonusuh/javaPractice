@@ -13,9 +13,12 @@ public class A3_철수가방 {
 //			[정답]
 //				4,000m
 		int workout = 1800;
-		int restPoint = workout - 300;
+		int restPoint = 300;
+		System.out.println(restPoint);
 		int returning = 200 * 2;
+		System.out.println(returning);
+		int restToHome = 1500;
 
-		System.out.println(1800 + 300+200+200+1700);
+		System.out.println(workout + restPoint + returning + restToHome + "m");
 	}
 }
