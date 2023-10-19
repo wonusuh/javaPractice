@@ -39,12 +39,15 @@ public class _14ATM4단계 {
 		// -1(로그아웃), 1(dbacc1로그인), 2(dbAcc2로그인)
 		boolean run = true;
 		while (run) {
-			System.out.println("1.로그인");
-			System.out.println("2.로그아웃");
-			System.out.println("3.입금");
-			System.out.println("4.출금");
-			System.out.println("5.이체");
-			System.out.println("6.조회");
+			if (log == -1) {
+				System.out.println("1.로그인");
+			} else {
+				System.out.println("2.로그아웃");
+				System.out.println("3.입금");
+				System.out.println("4.출금");
+				System.out.println("5.이체");
+				System.out.println("6.조회");
+			}
 			System.out.println("0.종료");
 
 			System.out.println("메뉴를 선택하세요 >>");
