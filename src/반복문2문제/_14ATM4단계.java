@@ -39,6 +39,14 @@ public class _14ATM4단계 {
 		// -1(로그아웃), 1(dbacc1로그인), 2(dbAcc2로그인)
 		boolean run = true;
 		while (run) {
+			System.out.print("현재 ");
+			if (log == -1) {
+				System.out.println("로그아웃중");
+			} else if (log == 1) {
+				System.out.println("acc1 님 로그인중");
+			} else {
+				System.out.println("acc2 님 로그인중");
+			}
 			if (log == -1) {
 				System.out.println("1.로그인");
 			} else {
@@ -49,6 +57,7 @@ public class _14ATM4단계 {
 				System.out.println("6.조회");
 			}
 			System.out.println("0.종료");
+			System.out.println("log == " + log);
 
 			System.out.println("메뉴를 선택하세요 >>");
 			int sel = sc.nextInt();
@@ -59,19 +68,19 @@ public class _14ATM4단계 {
 					continue;
 				}
 				System.out.println("로그인 합니다");
-				System.out.println("계좌번호를 입력하세요");
+				System.out.println("id >>");
 				int acc = sc.nextInt();
-				System.out.println("비밀번호를 입력하세요");
+				System.out.println("pw >>");
 				int pw = sc.nextInt();
 				if (acc == dbAcc1 && pw == dbPw1) {
-					System.out.println("dbAcc1 로그인");
+					System.out.println("dbAcc1 로그인 성공");
 					log = 1;
 					myAcc = dbAcc1;
 					myMoney = dbMoney1;
 					yourAcc = dbAcc2;
 					yourMoney = dbMoney2;
 				} else if (acc == dbAcc2 && pw == dbPw2) {
-					System.out.println("dbAcc2 로그인");
+					System.out.println("dbAcc2 로그인 성공");
 					log = 2;
 					myAcc = dbAcc2;
 					myMoney = dbMoney2;
@@ -130,10 +139,13 @@ public class _14ATM4단계 {
 					System.out.println("로그인 후 이용하세요");
 					continue;
 				}
-				System.out.println("이체받을 사람의 계좌번호를 입력하세요");
+				System.out.println("이체받을 사람의 계좌번호를 입력하세요 >>");
 				int inputAcc = sc.nextInt();
 				if (inputAcc == myAcc) {
 					System.out.println("나 자신에게는 이체할 수 없습니다.");
+					continue;
+				} else if (inputAcc != yourAcc) {
+					System.out.println("[ 없는 계좌 ]");
 					continue;
 				}
 				System.out.println("이체할 금액을 입력하세요 >>");
@@ -156,12 +168,17 @@ public class _14ATM4단계 {
 				}
 				System.out.println("조회");
 				System.out.printf("내계좌 : %d 내잔액 : %d\n", myAcc, myMoney);
-				System.out.printf("내상대 : %d 상대잔액 : %d\n", yourAcc, yourMoney);
+				System.out.printf("상대계좌 : %d 상대잔액 : %d\n", yourAcc, yourMoney);
 			} else if (sel == 0) {
 				System.out.println("종료");
 				run = false;
 			} else {
 				System.out.println("메뉴를 다시 선택하세요");
+				if (log == -1) {
+					System.out.println("로그인 후에 이용하세요");
+				} else {
+					System.out.println("이미 로그인 상태입니다");
+				}
 				continue;
 			}
 		}
