@@ -26,19 +26,17 @@ public class _23카카오택시 {
 		int speed = 0; // 속도
 
 		int crnCost = 0; // 현재 요금
-		int totalCost = 0; // 전체수익
+		int earnings = 0; // 전체수익
 
 		boolean run = true;
-		boolean speedLog = false;
-		boolean dirLog = false;
 
+		dx = rn.nextInt(10 - -10 + 1) + -10;
+		dy = rn.nextInt(10 - -10 + 1) + -10;
 		while (run) {
-			dx = rn.nextInt(10 - -10 + 1) + -10;
-			dy = rn.nextInt(10 - -10 + 1) + -10;
 			System.out.printf("[목적지] : x : %d y : %d\n", dx, dy);
 			System.out.printf("[현재위치] : x : %d y : %d\n", x, y);
 			System.out.printf("[방향] : %d [속도] : %d\n", dir, speed);
-			System.out.printf("[현재요금] : %d [전체수익] : %d\n", crnCost, totalCost);
+			System.out.printf("[현재요금] : %d [전체수익] : %d\n", crnCost, earnings);
 			System.out.printf("[1.속도] [2.방향] [3.이동] [0.종료]\n");
 
 			int menu = sc.nextInt();
@@ -50,7 +48,6 @@ public class _23카카오택시 {
 						System.out.println("속도는 1~3 이어야합니다");
 						continue;
 					}
-					speedLog = true;
 					break;
 				}
 			} else if (menu == 2) {
@@ -58,25 +55,45 @@ public class _23카카오택시 {
 					System.out.println("방향 설정 : 동(1)서(2)남(3)북(4)");
 					dir = sc.nextInt();
 					if (dir < 1 || dir > 4) {
-						System.out.println("방향을 다시 설정하세요");
+						System.out.println("방향을 다시 설정하세요 >>");
 						continue;
 					}
-					dirLog = true;
 					break;
 				}
 			} else if (menu == 3) {
-				if (!(speedLog && dirLog)) {
-					System.out.println("속도와 방향을 먼저 설정하세요");
+				if (speed == 0) {
+					System.out.println("속도를 먼저 설정하세요");
+					continue;
+				}
+				if (dir == 0) {
+					System.out.println("방향을 먼저 설정하세요");
 					continue;
 				}
 				// 이동하기 : 설정된 방향으로 설정된 속도만큼 이동
 				if (dir == 1) {
-					dx += speed;
+					x += speed;
+				} else if (dir == 2) {
+					x -= speed;
+				} else if (dir == 3) {
+					y -= speed;
+				} else {
+					y += speed;
+				}
+				// 한 칸당 50원추가
+				crnCost += speed * 50;
+				// 도착시 현재요금 출력
+				if (x == dx && y == dy) {
+					System.out.println("목적지에 도착했습니다. 이용 요금 : " + crnCost + "원");
+					earnings += crnCost;
+					crnCost = 0;
+					dx = rn.nextInt(10 - -10 + 1) + -10;
+					dy = rn.nextInt(10 - -10 + 1) + -10;
 				}
 			} else if (menu == 0) {
+				System.out.println("종료합니다. 전체수익 : " + earnings + "원");
+				run = false;
 			} else {
-				System.out.println("메뉴를 다시 입력하세요");
-				continue;
+				System.out.println("메뉴를 다시 입력하세요 >>");
 			}
 		}
 		sc.close();
