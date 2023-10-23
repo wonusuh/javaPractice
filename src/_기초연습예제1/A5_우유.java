@@ -16,13 +16,13 @@ public class A5_우유 {
 		double pm = 15.0;
 		System.out.println("pm == " + pm);
 
-		double remain = 345.0;
+//		double remain = 345.0;
 
 		// 69% : 345개 = 31% : n개
 		// 345/31 = 69n
 		// n = 345/31/69
 
-		double milkLeft = 345.0;
+//		double milkLeft = 345.0;
 
 		System.out.println(345.0 / 31.0 / 69.0);
 	}
