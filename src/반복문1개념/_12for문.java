@@ -10,7 +10,8 @@ public class _12for문 {
 		}
 		System.out.println("==============================");
 		// 횟수가 정해져있는 반복문
-		for (int k = 1; k <= 10; k += 1) {
+		int k = 1;
+		for (; k <= 10; k += 1) {
 			System.out.println(k + " ");
 		}
 
