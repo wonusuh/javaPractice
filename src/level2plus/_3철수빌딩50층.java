@@ -11,21 +11,20 @@ public class _3철수빌딩50층 {
 //			실제 엘리베이터에 적혀있는 숫자를 1층부터 순서대로 출력하시오.
 //		[예]
 //			1 2 3 5 6 7 8 9 10 11 12 13 15 .... 66
+		// 12
 		int i = 1;
-		int lastFloor = 10;
-		int digit = 0;
+		int lastFloor = 50;
+		boolean fourIncluded = true;
+
 		while (i <= lastFloor) {
-			// 랜덤숫자를 1의자리수 부터 n의자리수 까지 4가 있는지 판별
-			// 4가 있으면 브레이크
-			digit = i;
-			while (true) {
-				if (digit == 4) {
-					i += 1;
-					lastFloor += 1;
-				}
-				break;
+			fourIncluded = true;
+			if (i % 100 / 10 == 4 || i % 10 == 4) {
+				fourIncluded = false;
+				lastFloor += 1;
 			}
-			System.out.println(i);
+			if (fourIncluded) {
+				System.out.println(i);
+			}
 			i += 1;
 		}
 	}

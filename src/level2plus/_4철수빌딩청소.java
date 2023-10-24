@@ -12,6 +12,14 @@ public class _4철수빌딩청소 {
 //			전부 청소햇을때, 직원2의 청소한 층을 전부 출력하시오.
 //		[정답]
 //			3,4,9,10,15,16.....
-		
+		int lastfloor = 50;
+		int worker1 = 0;
+		int worker2 = 0;
+		int worker3 = 0;
+		int perPerson = 0;
+
+		for (int i = 1; i < lastfloor; i += 1) {
+			
+		}
 	}
 }
