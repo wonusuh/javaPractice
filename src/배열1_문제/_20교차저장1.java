@@ -12,11 +12,14 @@ public class _20교차저장1 {
 		int[] a = { 10, 20, 30 };
 		int[] b = { 40, 50, 60 };
 		int[] c = { 0, 0, 0, 0, 0, 0 };
+		int idx = 0;
+
 		for (int i = 0; i < c.length; i += 1) {
 			if (i % 2 == 0) {
-				c[i] = a[i / 2];
+				c[i] = a[idx];
 			} else {
-				c[i] = b[i / 2];
+				c[i] = b[idx];
+				idx += 1;
 			}
 		}
 		System.out.println(Arrays.toString(c));
