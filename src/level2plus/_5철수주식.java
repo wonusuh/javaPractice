@@ -1,5 +1,7 @@
 package level2plus;
 
+import java.util.Random;
+
 public class _5철수주식 {
 	public static void main(String[] args) {
 //		[문제 5]
@@ -17,6 +19,20 @@ public class _5철수주식 {
 //			(4) 같은 수치가 연속이면 상승으로 치지않는다.
 //		[정답]
 //			2일
-		
+		Random rn = new Random();
+
+		int before = 0;
+		int increment = 0;
+
+		for (int i = 0; i < 10; i += 1) {
+			int num = rn.nextInt(8 - 1 + 1) + 1;
+			System.out.print(num + " ");
+			if (num > before) {
+				before = num;
+				increment += 1;
+			}
+		}
+		System.out.println();
+		System.out.println(increment + "일");
 	}
 }
