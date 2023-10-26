@@ -3,7 +3,7 @@ package 배열_개념;
 import java.util.Arrays;
 import java.util.Random;
 
-public class _10즉석복권 {
+public class _09즉석복권 {
 	public static void main(String[] args) {
 //		문제
 //			즉석복권1

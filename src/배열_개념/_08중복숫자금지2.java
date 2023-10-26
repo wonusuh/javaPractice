@@ -25,11 +25,15 @@ public class _08중복숫자금지2 {
 
 //		랜덤숫자 : 2
 //		check = {true, false, true, true, false}
+		Random rn = new Random();
+
 		boolean[] check = new boolean[5];
 		int[] arr = new int[5];
-		Random rn = new Random();
+
 		for (int i = 0; i < arr.length; i += 1) {
+
 			arr[i] = rn.nextInt(arr.length); // 0 1 2 3 4
+
 			if (check[arr[i]] == false) {
 				check[arr[i]] = true;
 				System.out.println("저장 " + arr[i]);
