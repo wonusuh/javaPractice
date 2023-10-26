@@ -16,6 +16,7 @@ public class _11삭제원리 {
 		// 2. 실제저장한 데이터 길이에서만 삭제 가능
 
 		while (true) {
+			System.out.println(Arrays.toString(arr));
 			System.out.print("[");
 			for (int i = 0; i < cnt; i++) {
 				System.out.print(i == 0 ? arr[i] : " ," + arr[i]);
