@@ -27,6 +27,7 @@ public class 배열컨트롤러1단계통합본_암기 {
 		int[] arr = { 0, 0, 0, 0, 0 };
 
 		int count = 0;
+
 		while (true) {
 			System.out.println(Arrays.toString(arr));
 			for (int i = 0; i < count; i += 1) {
@@ -48,16 +49,32 @@ public class 배열컨트롤러1단계통합본_암기 {
 				System.out.println("종료합니다");
 				break;
 			} else if (sel == 1) {
-				if (count == 5) {
-					System.out.println("값을 더이상 추가할 수 없습니다");
-					continue;
-				}
 //				1. 추가
 //				값을 5개까지만 저장 가능
 //				중복되는 값은 저장 불가
 //				차례대로 뒤로 저장
+				if (count == 5) {
+					System.out.println("값을 더이상 추가할 수 없습니다");
+					continue;
+				}
+
 				System.out.print("추가할 값을 입력하세요 >>");
 				int input = sc.nextInt();
+
+				boolean duplicated = false;
+
+				if (duplicated) {
+					System.out.println("중복 된 값은 추가할  수 없습니다.");
+					continue;
+				}
+
+				// 중복 검사
+				for (int i = 0; i < count - 1; i += 1) {
+					if (arr[i] == input) {
+						duplicated = true;
+						System.out.println("중복된 값 추가 불가능");
+					}
+				}
 
 				for (int i = count - 1; i >= 0; i -= 1) {
 					arr[i + 1] = arr[i];
@@ -71,12 +88,14 @@ public class 배열컨트롤러1단계통합본_암기 {
 //				중복되는 값으로 수정 불가
 				System.out.println("수정할 인덱스를 입력하세요 >>");
 				int idx = sc.nextInt();
+
 				if (idx < 0 || idx > count - 1) {
 					System.out.println("인덱스범위에러");
 					continue;
 				}
 				System.out.print("수정할 값을 입력하세요 >>");
 				int val = sc.nextInt();
+
 				arr[idx] = val;
 			} else if (sel == 3) {
 				if (count == 0) {
@@ -85,6 +104,7 @@ public class 배열컨트롤러1단계통합본_암기 {
 				}
 				System.out.println("삭제할 인덱스를 입력하세요 >>");
 				int idx = sc.nextInt();
+
 				if (idx < 0 || idx > count - 1) {
 					System.out.println("인덱스 범위 에러");
 					continue;
@@ -102,6 +122,7 @@ public class 배열컨트롤러1단계통합본_암기 {
 				System.out.println("삭제할 값을 입력하세요 >> ");
 				int val = sc.nextInt();
 				int idx = -1;
+
 				for (int i = 0; i < count - 1; i += 1) {
 					if (val == arr[i]) {
 						idx = i;
@@ -118,12 +139,17 @@ public class 배열컨트롤러1단계통합본_암기 {
 				}
 				count -= 1;
 			} else if (sel == 5) {
+				if (count < 1) {
+					System.out.println("데이터가 최소한 한 개는 존재해야합니다");
+					continue;
+				}
 				if (count == 5) {
 					System.out.println("값을 더이상 삽입할 수 없습니다");
 					continue;
 				}
 				System.out.println("삽입할 인덱스를 입력 >>");
 				int insultIdx = sc.nextInt();
+
 				System.out.println("삽입할 값을 입력 >>");
 				int val = sc.nextInt();
 
