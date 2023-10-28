@@ -1,7 +1,5 @@
 package 배열2_문제;
 
-import java.util.Random;
-import java.util.Scanner;
 
 public class _16게임1to4_복습1 {
 	public static void main(String[] args) {
@@ -19,10 +17,10 @@ public class _16게임1to4_복습1 {
 //		
 //		9 9 9 9 => 게임 종료
 		int[] arr = new int[4];
-		boolean[] check = new boolean[4];
+//		boolean[] check = new boolean[4];
 
-		Scanner sc = new Scanner(System.in);
-		Random rn = new Random();
+//		Scanner sc = new Scanner(System.in);
+//		Random rn = new Random();
 		for (int i = 0; i < arr.length; i += 1) {
 
 		}

@@ -8,16 +8,24 @@ public class _03삼각형그리기 {
 //			##	i=1 k=0 k=1
 //			###	i=2 k=0 k=2
 		for (int i = 0; i < 3; i += 1) {
-			for (int k = 0; k < 3; k += 1) {
-				
+			for (int k = 0; k <= i; k += 1) {
+				System.out.print("#");
 			}
+			System.out.println();
 		}
+
+		System.out.println("==========");
 
 //		2
 //			###
 //			##
 //			#
-
+		for (int i = 3; i >= 0; i -= 1) {
+			for (int k = 0; k < i; k += 1) {
+				System.out.print("#");
+			}
+			System.out.println();
+		}
 //		3
 //			@##
 //			@@#

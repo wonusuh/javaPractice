@@ -20,7 +20,8 @@ public class _21숫자이동 {
 		int player = 2;
 		int road = 0;
 		int wall = 1;
-		while (true) {
+		boolean run = true;
+		while (run) {
 			// 게임 화면 출력
 			for (int i = 0; i < game.length; i += 1) {
 				if (game[i] == road) {
@@ -73,5 +74,6 @@ public class _21숫자이동 {
 			game[pIdx] = player; // 길을 플레이어로 변경
 
 		}
+		sc.close();
 	}
 }
