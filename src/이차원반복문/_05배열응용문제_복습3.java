@@ -3,7 +3,7 @@ package 이차원반복문;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class _05배열응용문제_복습2 {
+public class _05배열응용문제_복습3 {
 	public static void main(String[] args) {
 //		숫자를 5개 입력받고 arr 배열안에 입력한 값이 있을때마다
 //		inputs에 사용자가 입력한 값을 차례대로 저장한다
@@ -16,20 +16,21 @@ public class _05배열응용문제_복습2 {
 		Scanner sc = new Scanner(System.in);
 
 		int arr[] = { 10, 20, 30, 40, 50 };
-		int b[] = new int[arr.length];
 		int inputs[] = new int[arr.length];
+		int b[] = new int[arr.length];
+
 		for (int i = 0; i < arr.length; i += 1) {
 			System.out.print("검색할 값을 입력하세요 >> ");
 
 			int input = sc.nextInt();
+
 			inputs[i] = input;
 
 			int idx = -1;
-			for (int k = 0; k < arr.length; k += 1) {
 
+			for (int k = 0; k <= arr.length - 1; k += 1) {
 				if (input == arr[k]) {
 					idx = k;
-					break;
 				}
 			}
 			b[i] = idx;
