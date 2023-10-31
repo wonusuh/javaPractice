@@ -22,7 +22,6 @@ public class 문제13 {
 			System.out.println("1)left");
 			System.out.println("2)right");
 			System.out.println("0)exit");
-
 			System.out.print("메뉴 선택 : ");
 
 			int menu = sc.nextInt();
@@ -30,27 +29,18 @@ public class 문제13 {
 			if (menu == 1) {
 				// left
 
-				int cnt = 0;
-
 				for (int i = 0; i < arr.length; i += 1) {
-					if (arr[i] != 0) {
-						arr[cnt] = arr[i];
-						arr[i+1] = 0;
-						cnt += 1;
+
+					if (arr[i] == 0) {
+
+						for (int k = i; k < arr.length - 1; k += 1) {
+							arr[i] = arr[i + 1];
+							System.out.println(Arrays.toString(arr));
+						}
 					}
 				}
 			} else if (menu == 2) {
 				// right
-
-				int cnt = 0;
-
-				for (int i = arr.length - 1; i >= 0; i -= 1) {
-					if (arr[i] != 0) {
-						arr[cnt] = arr[i];
-						arr[i] = 0;
-						cnt += 1;
-					}
-				}
 			} else if (menu == 0) {
 				// exit
 				System.out.println("종료합니다.");
