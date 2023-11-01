@@ -15,7 +15,8 @@ public class 문제13 {
 //				   arr = {0,0,0,0,0,2,3,4,5}
 		Scanner sc = new Scanner(System.in);
 
-		int[] arr = { 1, 2, 0, 3, 4, 0, 0, 5, 6 };
+		int[] arr = { 0, 0, 0, 0, 0, 2, 3, 4, 5 };
+		// 2 0 3 4 0 0 5 0 0
 
 		while (true) {
 			System.out.println(Arrays.toString(arr));
@@ -25,24 +26,18 @@ public class 문제13 {
 			System.out.print("메뉴 선택 : ");
 
 			int menu = sc.nextInt();
+			int size = arr.length;
 
-			if (menu == 1) {
-				// left
-
-				for (int i = 0; i < arr.length; i += 1) {
-
+			if (menu == 1) { // left
+				for (int i = 0; i < size - 1; i += 1) {
 					if (arr[i] == 0) {
-
-						for (int k = i; k < arr.length - 1; k += 1) {
-							arr[i] = arr[i + 1];
-							System.out.println(Arrays.toString(arr));
-						}
+						arr[i] = arr[i + 1];
+						arr[i + 1] = 0;
 					}
+					System.out.println(i + Arrays.toString(arr));
 				}
-			} else if (menu == 2) {
-				// right
-			} else if (menu == 0) {
-				// exit
+			} else if (menu == 2) { // right
+			} else if (menu == 0) { // exit
 				System.out.println("종료합니다.");
 				break;
 			} else {
