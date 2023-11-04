@@ -30,8 +30,6 @@ public class 문제10 {
 
 		int idx1 = 0;
 		int idx2 = 0;
-		p1[idx1] = 1;
-		p2[idx2] = 2;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -39,17 +37,70 @@ public class 문제10 {
 		int p2cnt = 0;
 
 		while (true) {
-			System.out.printf("[p1] %d바퀴 [p2] %d바퀴\n", p1cnt, p1cnt);
+			p1[idx1] = 1;
+			p2[idx2] = 2;
+			System.out.println();
+			System.out.printf("[p1] %d바퀴 [p2] %d바퀴\n", p1cnt, p2cnt);
 			System.out.println("game" + Arrays.toString(game));
 			System.out.println(" p1 " + Arrays.toString(p1));
 			System.out.println(" p2 " + Arrays.toString(p2));
-			System.out.printf("[%d턴] 입력(0~3) >> ", turn);
+			System.out.printf("[%d턴] 입력(1~3) >> ", turn);
 
 			int input = sc.nextInt();
 
+			if (input < 0 || input > 3) {
+				System.out.println("[이동 범위는 (1~3)입니다.]");
+				continue;
+			}
+
+			// 한 턴 전의 인덱스를 보관하는 변수
+			int beforeIdx1 = idx1;
+			int beforeIdx2 = idx2;
+
+			// 플레이어 이동
+			if (turn == 1) {
+
+				idx1 += input;
+
+				if (idx1 > game.length - 1) {
+					idx1 -= game.length;
+					p1cnt += 1;
+				}
+			} else {
+
+				idx2 += input;
+
+				if (idx2 > game.length - 1) {
+					idx2 -= game.length;
+					p2cnt += 1;
+				}
+			}
+
+			// 붙잡히면 0번방으로 이동
+			if (idx1 == idx2) {
+				System.out.printf("[p%d]가 붙잡았다!\n", turn);
+
+				if (turn == 1) {
+					idx2 = 0;
+				} else {
+					idx1 = 0;
+				}
+			}
+
+			p1[beforeIdx1] = 0;
+			p2[beforeIdx2] = 0;
+
+			// 3바퀴 돌면 승리
 			if (p1cnt == 3 || p2cnt == 3) {
 				System.out.printf("[%d] 승리!", turn);
 				break;
+			}
+
+			// 턴 전환
+			if (turn == 1) {
+				turn = 2;
+			} else {
+				turn = 1;
 			}
 		}
 		sc.close();
