@@ -16,8 +16,9 @@ public class _03기본문제3 {
 
 		int[] garo = new int[3];
 		int[] sero = new int[4];
-//
 ////		문제1) 가로합 출력 : 410, 810, 1210
+////		문제2) 세로합 출력 : 603, 606, 609, 612
+//
 //		for (int i = 0; i < garo.length; i += 1) {
 //
 //			int sum = 0;
@@ -29,7 +30,6 @@ public class _03기본문제3 {
 //			System.out.println(Arrays.toString(garo));
 //		}
 ////
-////		문제2) 세로합 출력 : 603, 606, 609, 612
 //		for (int i = 0; i < sero.length; i += 1) {
 //
 //			int sum = 0;
