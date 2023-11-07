@@ -28,14 +28,11 @@ public class 문제13 {
 			System.out.println(num);
 
 			if (num % 2 != 0) {
-
-				for (int j = odd; j < arr.length - odd; j -= 1) {
-					arr[j + 1] = arr[j];
-				}
-				arr[i] = num;
+				arr[0] = num;
 				odd += 1;
 			} else {
-
+				arr[arr.length - 1] = num;
+				even += 1;
 			}
 			System.out.println(Arrays.toString(arr));
 		}
