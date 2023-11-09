@@ -3,6 +3,7 @@ package _level4test;
 import java.util.Arrays;
 
 public class 문제12 {
+
 	public static void main(String[] args) {
 //		아래 배열에서 혼자있는 숫자를 제거한후 나머지값들만 출력해보자.
 
@@ -23,15 +24,25 @@ public class 문제12 {
 
 		for (int i = 0; i < arr.length; i += 1) {
 
-			int[] copy = arr[i];
-
 			for (int j = 0; j < arr[i].length; j += 1) {
 
-				arr[i] = new int[copy.length - 1];
+				// 배열을 어디서 초기화 해야하나?
+				int[] copy = arr[i];
 
-				System.out.println(copy.length);
+				for (int k = 0; k < arr[i].length; k += 1) {
+
+					// 자신을 제외하고 같은 수가 있는 경우에만 배열에 복사하기
+					if (j != k) {
+
+						if (arr[i][j] == arr[i][k]) {
+							System.out.print(arr[i][k] + " ");
+							break;
+						}
+					}
+				}
 			}
+			System.out.println();
 		}
-		System.out.println(Arrays.deepToString(arr));
+		System.out.print(Arrays.deepToString(arr));
 	}
 }

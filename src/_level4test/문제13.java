@@ -16,9 +16,7 @@ public class 문제13 {
 //		  	6 ==> arr = {1,3,0,2,6}; // 전의 값(2)를 앞으로 밀어내고 짝수는 맨뒤에 6저장
 //		  	7 ==> arr = {7,1,3,2,6}; // 전의 값(1, 3)을 뒤로 밀어내고 맨앞에 7저장
 		int arr[] = new int[5];
-
 		Random rn = new Random();
-
 		int odd = 0;
 		int even = 0;
 
@@ -35,6 +33,7 @@ public class 문제13 {
 				arr[0] = num;
 				odd += 1;
 			} else {
+
 				for (int j = (arr.length - 1) - even; j < arr.length - 1; j += 1) {
 					arr[j] = arr[j + 1];
 				}
