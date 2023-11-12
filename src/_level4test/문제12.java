@@ -1,7 +1,5 @@
 package _level4test;
 
-import java.util.Arrays;
-
 public class 문제12 {
 
 	public static void main(String[] args) {
@@ -23,15 +21,11 @@ public class 문제12 {
 				arr3 };
 
 		for (int i = 0; i < arr.length; i += 1) {
-			// 가변배율 사용해보기
-			// 배열을 어디서 초기화 해야하나?
-			int[] copy = arr[i];
 
 			for (int j = 0; j < arr[i].length; j += 1) {
 
 				for (int k = 0; k < arr[i].length; k += 1) {
 
-					// 자신을 제외하고 같은 수가 있는 경우에만 배열에 복사하기
 					if (j != k) {
 
 						if (arr[i][j] == arr[i][k]) {
@@ -43,6 +37,5 @@ public class 문제12 {
 			}
 			System.out.println();
 		}
-		System.out.print(Arrays.deepToString(arr));
 	}
 }
