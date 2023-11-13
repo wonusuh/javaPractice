@@ -33,17 +33,14 @@ public class 문제15 {
 
 		for (int i = 0; i < arr.length; i += 1) {
 
-			for (int j = 0; j < arr[i].length; j += 1) {
-
-				if (arr[i][j].equals("동")) {
-					x += Integer.parseInt(arr[i][0]);
-				} else if (arr[i][j].equals("서")) {
-					x -= Integer.parseInt(arr[i][0]);
-				} else if (arr[i][j].equals("남")) {
-					y -= Integer.parseInt(arr[i][0]);
-				} else if (arr[i][j].equals("북")) {
-					y += Integer.parseInt(arr[i][0]);
-				}
+			if (arr[i][1].equals("동")) {
+				x += Integer.parseInt(arr[i][0]);
+			} else if (arr[i][1].equals("서")) {
+				x -= Integer.parseInt(arr[i][0]);
+			} else if (arr[i][1].equals("남")) {
+				y -= Integer.parseInt(arr[i][0]);
+			} else {
+				y += Integer.parseInt(arr[i][0]);
 			}
 			System.out.printf("x == %d, y == %d\n", x, y);
 		}
