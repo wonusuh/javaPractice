@@ -24,6 +24,32 @@ public class _17게시판1단계 {
 
 		while (true) {
 
+			// 시작 게시물 번호
+			startRow = count / curPageNum * pageSize;
+
+			// 끝 게시물 번호
+			endRow = startRow - pageSize;
+
+			// 마지막 페이지에서의 게시물
+			if (endRow > count) {
+				endRow = count;
+			}
+
+			for (int i = startRow; i < endRow; i += 1) {
+				System.out.printf("(%d)\n", i);
+			}
+			System.out.printf("(%d/%d)\n", curPageNum, pageCount);
+			System.out.println("[이전 1]"); // 페이지 이동
+			System.out.println("[이후 2]");
+			System.out.print("선택 >> ");
+			int sel = sc.nextInt();
+
+			if (sel == 1) {
+			} else if (sel == 2) {
+			} else {
+				break;
+			}
 		}
+		sc.close();
 	}
 }

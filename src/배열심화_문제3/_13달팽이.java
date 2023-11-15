@@ -27,9 +27,59 @@ public class _13달팽이 {
 		int x = 0;
 
 		while (cnt > 0) {
+			arr[y][x] = num;
 
+			int yPre = y;
+			int xPre = x;
+
+			if (dir == 0) {
+				// 동쪽
+				x = xPre + 1;
+
+				if (x > size - 1 || arr[y][x] != 0) {
+					x = xPre;
+					dir = 1;
+					y += 1;
+				}
+			} else if (dir == 1) {
+				// 남쪽
+				y = yPre + 1;
+
+				if (y > size - 1 || arr[y][x] != 0) {
+					y = yPre;
+					dir = 2;
+					x -= 1;
+				}
+			} else if (dir == 2) {
+				// 서쪽
+				x = xPre - 1;
+
+				if (x < 0 || arr[y][x] != 0) {
+					x = xPre;
+					dir = 3;
+					y -= 1;
+				}
+			} else {
+				// 북쪽
+				y = yPre - 1;
+
+				if (y < 0 || arr[y][x] != 0) {
+					y = yPre;
+					dir = 0;
+					x += 1;
+				}
+			}
 			num += 1;
 			cnt -= 1;
+		}
+
+		// 달팽이 출력
+		for (int i = 0; i < arr.length; i += 1) {
+
+			for (int j = 0; j < arr[i].length; j += 1) {
+				System.out.printf(String.format("%-4d", arr[i][j]));
+			}
+			System.out.println();
 		}
 		sc.close();
 	}

@@ -28,10 +28,10 @@ public class _19도서연체 {
 		String[] rental = rentalData.split("\n");
 		String[] user = userData.split("\n");
 
-		int bookNum1 = 0;
+//		int bookNum1 = 0;
 		int bookName = 1;
 		int rentDate = 2;
-		int peosonal1 = 3;
+//		int peosonal1 = 3;
 		String[][] rentals = new String[rental.length][4];
 
 		for (int i = 0; i < rentals.length; i += 1) {
@@ -45,7 +45,7 @@ public class _19도서연체 {
 		}
 
 		int personal2 = 0;
-		int bookNum2 = 1;
+//		int bookNum2 = 1;
 		int days = 2;
 		String[][] users = new String[user.length][3];
 
@@ -64,7 +64,8 @@ public class _19도서연체 {
 		System.out.println("users" + Arrays.deepToString(users));
 
 		System.out.println();
-		System.out.println("회원번호, 도서이름 , 연체된일수, 빌린날짜, 빌린일, 대여일수");
+		System.out.printf(
+				String.format("%-10s %-10s %-10s %-10s %-10s %-10s\n", "회원번호", "도서이름", "연체된일수", "빌린날짜", "빌린일", "대여일수"));
 		for (int i = 1; i < rentals.length; i += 1) {
 
 			int todayY = Integer.parseInt(today.substring(0, 4));
@@ -103,11 +104,10 @@ public class _19도서연체 {
 			// cnt가 대여일수를 초과하는 사람만 출력
 //			System.out.println("cnt" + cnt);
 			if (cnt > Integer.parseInt(users[i][days])) {
-				System.out.printf(
-						String.format("%-4s %-15s %5d일 %-10s %5d일 %5s일\n", users[i][personal2], rentals[i][bookName],
-								cnt - Integer.parseInt(users[i][days]), rentals[i][rentDate], cnt, users[i][days]));
+				System.out.printf(String.format("%-10s %-10s %-10d %-10s %-10d %-10s\n", users[i][personal2],
+						rentals[i][bookName], cnt - Integer.parseInt(users[i][days]), rentals[i][rentDate], cnt,
+						users[i][days]));
 			}
 		}
-
 	}
 }
