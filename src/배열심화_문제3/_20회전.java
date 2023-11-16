@@ -7,6 +7,7 @@ public class _20회전 {
 	public static void main(String[] args) {
 		// 문제 아래 명령어를 입력받을때마다 block배열을 90도 회전해보세요.
 //		[1. turn left] [2.turn right]
+
 		int block[][] = {
 
 				{ 1, 2, 3, 4 },
@@ -35,7 +36,7 @@ public class _20회전 {
 			int temp[][] = new int[block.length][block[0].length];
 
 			if (input == 1) {
-				// left
+				// 왼
 
 				for (int i = 0; i < block.length; i += 1) {
 
@@ -45,7 +46,7 @@ public class _20회전 {
 				}
 				block = temp;
 			} else if (input == 2) {
-				// right
+				// 오른
 
 				for (int i = 0; i < block.length; i += 1) {
 
@@ -55,7 +56,7 @@ public class _20회전 {
 				}
 				block = temp;
 			} else {
-				// break
+				// 종료
 				break;
 			}
 		}

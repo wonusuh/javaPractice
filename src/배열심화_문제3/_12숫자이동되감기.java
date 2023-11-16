@@ -13,6 +13,7 @@ public class _12숫자이동되감기 {
 //		
 //		한 칸 한 칸 이동할 때 마다 move배열에 이동한 경로를 저장했다가,
 //		5번 입력시 => 왔던길로 되돌아가기한다.
+
 		Scanner sc = new Scanner(System.in);
 		int game[][] = {
 
@@ -26,22 +27,31 @@ public class _12숫자이동되감기 {
 		int move[][] = new int[10][2]; // 플레이어의 좌표기록 0 : y, 1 : x
 		int x = 3;
 		int y = 3;
+
+		move[0][0] = y;
+		move[0][1] = x;
+
 		int cnt = 1;
 
 		while (true) {
-			move[cnt - 1][0] = y;
-			move[cnt - 1][1] = x;
+			System.out.println("move" + Arrays.deepToString(move));
+			System.out.println("cnt" + cnt);
 
 			// 게임판 출력
 			for (int i = 0; i < game.length; i += 1) {
 
 				for (int j = 0; j < game[i].length; j += 1) {
-					System.out.printf(String.format("%-4d", game[i][j]));
+					if (game[i][j] == 0) {
+						System.out.printf(String.format("%-3s", "★"));
+					} else {
+						System.out.printf(String.format("%-3d", game[i][j]));
+					}
 				}
 				System.out.println();
 			}
-			System.out.println("(1)Left (2)Right (3)Up (4)Down (5)되감기");
+			System.out.println("[(1)Left (2)Right (3)Up (4)Down (5)되감기]");
 			System.out.print(">> ");
+
 			int input = sc.nextInt();
 
 			if (input == 1) {
@@ -93,38 +103,26 @@ public class _12숫자이동되감기 {
 					cnt += 1;
 				}
 			} else if (input == 5) {
-				// turning back
+				// 되감기
 
 				if (cnt == 1) {
-					System.out.println("처음 턴 일때는 돌아갈 수 없습니다.");
+					System.err.println("처음 턴 일때는 돌아갈 수 없습니다.");
 					continue;
 				}
 
-				int temp = game[move[cnt - 1][0]][move[cnt - 1][1]];
-				int yTemp = y;
-				int xTemp = x;
-				System.out.printf("yTemp%d, xTemp%d\n", yTemp, xTemp);
+				int tempY = y;
+				int tempX = x;
 
-				y = move[cnt - 1][0];
-				x = move[cnt - 1][1];
+				y = move[cnt - 2][0];
+				x = move[cnt - 2][1];
 				game[y][x] = 0;
-				game[yTemp][xTemp] = temp;
-				move[cnt][0] = 0;
-				move[cnt][1] = 0;
-				cnt -= 1;
+				System.out.println("y" + y);
+				System.out.println("x" + x);
 			} else {
 				break;
 			}
-			System.out.println(Arrays.deepToString(move));
-			System.out.println(cnt);
-
-//			// move 출력
-//			for (int i = 0; i < cnt; i += 1) {
-//				System.out.print("(");
-//				System.out.print("y" + move[i][0] + ", ");
-//				System.out.print("x" + move[i][1] + ")");
-//			}
-//			System.out.println();
+			move[cnt - 1][0] = y;
+			move[cnt - 1][1] = x;
 		}
 		sc.close();
 	}

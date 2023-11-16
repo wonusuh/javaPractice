@@ -100,15 +100,17 @@ public class _22쇼핑몰관리자 {
 
 						// 인덱스 예외
 						if (del < 0 || del + 1 > itemCount) {
-							System.err.println("카테고리 번호를 확인하세요");
+							System.err.println("카테고리 번호를 확인하세요.");
 							continue;
 						}
 
+						// 삭제하고 배열을 앞으로 당기기
 						for (int i = del; i < itemCount; i += 1) {
 							items[i] = items[i + 1];
 						}
 						itemCount -= 1;
 					} else if (input == 3) {
+						// 뒤로
 						break;
 					}
 				}
@@ -256,7 +258,7 @@ public class _22쇼핑몰관리자 {
 			}
 
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
