@@ -24,9 +24,9 @@ public class _12숫자이동되감기 {
 				{ 9, 10, 11, 12 },
 
 				{ 13, 14, 15, 0 } };
-		int move[][] = new int[10][2]; // 플레이어의 좌표기록 0 : y, 1 : x
-		int x = 3;
+		int move[][] = new int[10][2]; // 플레이어의 좌표를 기록 => (y, x)
 		int y = 3;
+		int x = 3;
 
 		move[0][0] = y;
 		move[0][1] = x;
@@ -34,95 +34,65 @@ public class _12숫자이동되감기 {
 		int cnt = 1;
 
 		while (true) {
-			System.out.println("move" + Arrays.deepToString(move));
-			System.out.println("cnt" + cnt);
 
-			// 게임판 출력
+			// 현재 y, x의 값을 배열에 적용
+			game[y][x] = 0;
+
+			// 출력
 			for (int i = 0; i < game.length; i += 1) {
 
 				for (int j = 0; j < game[i].length; j += 1) {
+
 					if (game[i][j] == 0) {
-						System.out.printf(String.format("%-3s", "★"));
+						System.out.printf(String.format("%-3s", game[i][j]));
 					} else {
 						System.out.printf(String.format("%-3d", game[i][j]));
 					}
 				}
 				System.out.println();
 			}
-			System.out.println("[(1)Left (2)Right (3)Up (4)Down (5)되감기]");
-			System.out.print(">> ");
+			System.out.println("move" + Arrays.deepToString(move));
+			System.out.println("cnt" + cnt);
+			System.out.println("     ↑(5)");
+			System.out.print("←(1) ↓(2) →(3)");
 
 			int input = sc.nextInt();
+			int yPre = y;
+			int xPre = x;
+			int temp = game[yPre][xPre];
 
 			if (input == 1) {
 				// left
-
-				if (x != 0) {
-
-					int temp = game[y][x - 1];
-
-					game[y][x - 1] = 0;
-					game[y][x] = temp;
-					x -= 1;
-					cnt += 1;
-				}
-			} else if (input == 2) {
-				// right
-
-				if (x != 3) {
-
-					int temp = game[y][x + 1];
-
-					game[y][x + 1] = 0;
-					game[y][x] = temp;
-					x += 1;
-					cnt += 1;
-				}
+				x = xPre - 1;
 			} else if (input == 3) {
-				// up
-
-				if (y != 0) {
-
-					int temp = game[y - 1][x];
-
-					game[y - 1][x] = 0;
-					game[y][x] = temp;
-					y -= 1;
-					cnt += 1;
-				}
-			} else if (input == 4) {
-				// down
-
-				if (y != 3) {
-
-					int temp = game[y + 1][x];
-
-					game[y + 1][x] = 0;
-					game[y][x] = temp;
-					y += 1;
-					cnt += 1;
-				}
+				// right
+				x = xPre + 1;
 			} else if (input == 5) {
-				// 되감기
+				// up
+				y = yPre - 1;
+			} else if (input == 2) {
+				// down
+				y = yPre + 1;
+			} else if (input == 5) {
+				// turning back
 
 				if (cnt == 1) {
 					System.err.println("처음 턴 일때는 돌아갈 수 없습니다.");
 					continue;
 				}
-
-				int tempY = y;
-				int tempX = x;
-
-				y = move[cnt - 2][0];
-				x = move[cnt - 2][1];
-				game[y][x] = 0;
-				System.out.println("y" + y);
-				System.out.println("x" + x);
 			} else {
 				break;
 			}
-			move[cnt - 1][0] = y;
-			move[cnt - 1][1] = x;
+
+			// 배열의 범위를 벗어날 수 없게 하기
+			if (y < 0 || y > game.length - 1) {
+				y = yPre;
+			}
+
+			if (x < 0 || x > game.length - 1) {
+				x = xPre;
+			}
+			game[yPre][xPre] = temp;
 		}
 		sc.close();
 	}
