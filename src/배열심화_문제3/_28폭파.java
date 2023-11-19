@@ -72,8 +72,6 @@ public class _28폭파 {
 				bombs[0] = null;
 
 				for (int i = 1; i < bombs.length; i += 1) {
-					
-					
 
 					if (y - 1 < 0) {
 						y = 0;
