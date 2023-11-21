@@ -66,46 +66,79 @@ public class 문제10 {
 				}
 				System.out.println();
 			}
+
+			// 아이템 다 먹으면 종료
+			if (item == 0) {
+				System.err.println("아이템을 다 먹었습니다!");
+				break;
+			}
+
 			System.out.println("     ↑(5)");
 			System.out.print("←(1) ↓(2) →(3)");
 			int dir = scan.nextInt();
+
 			int yPre = y[0];
 			int xPre = x[0];
+			int yTail = y[y.length - 1];
+			int xTail = x[x.length - 1];
 
 			if (dir == -1) {
 				break;
 			} else if (dir == 1) {
 				// ←
-				x[0] = xPre - 1;
-				if (x[0] < 0) {
-					x[0] = xPre;
-				}
+				xPre -= 1;
 			} else if (dir == 2) {
 				// ↓
-				y[0] = yPre + 1;
-				if (y[0] > map.length - 1) {
-					y[0] = yPre;
-				}
+				yPre += 1;
 			} else if (dir == 3) {
 				// →
-				x[0] = xPre += 1;
-				if (x[0] > map.length - 1) {
-					x[0] = xPre;
-				}
+				xPre += 1;
 			} else if (dir == 5) {
 				// ↑
-				y[0] = yPre - 1;
-				if (y[0] < 0) {
-					y[0] = yPre;
-				}
+				yPre -= 1;
 			}
 
-			// 꼬리 당기기
-			for (int i = y.length - 1; i > 1; i -= 1) {
-				System.out.println(x[i]);
+			// 배열 밖으로 못나가게하기
+			if (yPre < 0 || yPre > map.length - 1 || xPre < 0 || xPre > map.length - 1) {
+				continue;
+			}
+
+			// 몸통박치기
+			if (map[yPre][xPre] > 0) {
+				System.err.println("몸통박치기!");
+				break;
+			}
+
+			// 머리 전에 꼬리 당기기
+			for (int i = y.length - 1; i > 0; i -= 1) {
 				y[i] = y[i - 1];
 				x[i] = x[i - 1];
 			}
+
+			// 꼬리 흔적 지우기
+			map[yTail][xTail] = 0;
+
+			// 아이템 먹었을 때 뱀 길이 늘리기
+			if (map[yPre][xPre] == -1) {
+				item -= 1;
+				snakeSize += 1;
+
+				int[] yCopy = y;
+				int[] xCopy = x;
+				y = new int[snakeSize];
+				x = new int[snakeSize];
+
+				for (int i = 0; i < yCopy.length; i += 1) {
+					y[i] = yCopy[i];
+					x[i] = xCopy[i];
+				}
+				y[y.length - 1] = yTail;
+				x[x.length - 1] = xTail;
+			}
+
+			// 마지막에 머리
+			y[0] = yPre;
+			x[0] = xPre;
 		}
 		scan.close();
 	}

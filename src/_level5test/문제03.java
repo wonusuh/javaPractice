@@ -27,7 +27,6 @@ public class 문제03 {
 			String tempo = "" + data[i][0];
 			String result = "";
 			int cnt = tempo.length();
-			;
 
 			for (int j = 0; j < tempo.length(); j += 1) {
 				cnt -= 1;
