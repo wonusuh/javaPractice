@@ -39,9 +39,11 @@ public class 문제11 {
 		final int GOAL = 7;
 		final int ROAD = 0;
 		int size = 7;
+		Random rn = new Random();
+		int cnt = rn.nextInt(3 - 1 + 1) + 1; // 게임 플레이 횟수
+
 		int[][] field = new int[size][size];
 		Scanner sc = new Scanner(System.in);
-		Random rn = new Random();
 
 		// 필드에 벽 생성
 		while (true) {
@@ -93,6 +95,7 @@ public class 문제11 {
 		boolean isNew = true;
 
 		while (true) {
+			System.out.printf("남은 게임 횟수 : %d\n", cnt);
 			field[goalY][goalX] = GOAL;
 
 			while (isNew) {
@@ -150,14 +153,21 @@ public class 문제11 {
 				}
 				System.out.println();
 			}
+
+			// game횟수가 0이 되면 종료
+			if (cnt == 0) {
+				System.out.println("게임 종료.");
+				break;
+			}
+
 			System.out.println("     ↑(5)");
 			System.out.print("←(1) ↓(2) →(3)");
 			int dir = sc.nextInt();
 
 			int yPre = charY;
 			int xPre = charX;
-			int yBall = ballY;
-			int xBall = ballX;
+			int yPreBall = ballY;
+			int xPreBall = ballX;
 
 			if (dir == -1) {
 				break;
@@ -166,49 +176,63 @@ public class 문제11 {
 				xPre -= 1;
 
 				if (field[yPre][xPre] == BALL) {
-					xBall -= 1;
+					xPreBall -= 1;
 				}
 			} else if (dir == 2) {
 				// ↓
 				yPre += 1;
 
 				if (field[yPre][xPre] == BALL) {
-					yBall += 1;
+					yPreBall += 1;
 				}
 			} else if (dir == 3) {
 				// →
 				xPre += 1;
 
 				if (field[yPre][xPre] == BALL) {
-					xBall += 1;
+					xPreBall += 1;
 				}
 			} else if (dir == 5) {
 				// ↑
 				yPre -= 1;
 
 				if (field[yPre][xPre] == BALL) {
-					yBall -= 1;
+					yPreBall -= 1;
 				}
 			} else {
 				continue;
 			}
 
 			// 캐릭터와 공이 field 밖으로 못나가게하기
-			if (yPre < 0 || yPre > field.length - 1 || xPre < 0 || xPre > field.length - 1 || yBall < 0
-					|| yBall > field.length - 1 || xBall < 0 || xBall > field.length - 1) {
+			if (yPre < 0 || yPre > field.length - 1 || xPre < 0 || xPre > field.length - 1 || yPreBall < 0
+					|| yPreBall > field.length - 1 || xPreBall < 0 || xPreBall > field.length - 1) {
 				continue;
 			}
 
 			// 기둥 예외
-			if (field[yPre][xPre] == WALL || field[yBall][xBall] == WALL) {
+			if (field[yPre][xPre] == WALL || field[yPreBall][xPreBall] == WALL) {
 				continue;
 			}
-			field[yBall][xBall] = BALL;
+
+			// 골 인 하면 다시시작
+			boolean check = false;
+			if (field[yPreBall][xPreBall] == GOAL) {
+				isNew = true;
+				check = true;
+				cnt -= 1;
+			}
+
+			field[yPreBall][xPreBall] = BALL;
 			field[yPre][xPre] = CHARACTOR;
 			field[charY][charX] = ROAD; // 캐릭터의 이전 위치 지우기
 
+			ballY = yPreBall;
+			ballX = xPreBall;
 			charY = yPre;
 			charX = xPre;
+			if (check) {
+				field[charY][charX] = ROAD;
+			}
 		}
 		sc.close();
 	}
