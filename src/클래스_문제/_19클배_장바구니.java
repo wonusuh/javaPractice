@@ -39,6 +39,14 @@ public class _19클배_장바구니 {
 			itemList[i] = temp;
 		}
 
+		// 유저목록 확인
+		for (int i = 0; i < userList.length; i += 1) {
+			if (userList[i] == null) {
+				break;
+			}
+
+			System.out.println(i + userList[i].id);
+		}
 		int log = -1;
 		while (true) {
 			System.out.println("[0] 종료");
@@ -235,25 +243,26 @@ public class _19클배_장바구니 {
 								userList[i + 1] = null;
 							}
 							System.out.println(Arrays.deepToString(userList));
-							userCnt -= 1;
 
 							// cartList에서 삭제하고 당기기
-							System.out.println("log " + log);
-							for (int i = 0; i < cartCnt; i += 1) {
+							for (int i = 0; i < cartList.length; i += 1) {
 
+								if (cartList[i] == null) {
+									break;
+								}
+
+								System.out.println("log " + log);
 								System.out.println(cartList[i].userId);
 								System.out.println(userList[log].id);
-								if (cartList[i].userId.equals(userList[log].id)) {
+								String temp = "";
+								temp = userIdList[log];
+								System.out.println(temp);
 
-									for (int j = i; j < cartCnt; j += 1) {
-										cartList[j] = cartList[j + 1];
-										cartList[j + 1] = null;
-									}
-									cartCnt -= 1;
-									i -= 1;
+								if (cartList[i].userId.equals(temp)) {
+									System.err.println("일치");
 								}
-								System.out.println(Arrays.deepToString(cartList));
 							}
+							userCnt -= 1;
 							log = -1;
 							break;
 						}
