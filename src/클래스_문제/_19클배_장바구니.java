@@ -1,6 +1,5 @@
 package 클래스_문제;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class _19클배_장바구니 {
@@ -13,13 +12,14 @@ public class _19클배_장바구니 {
 
 		int max = 10;
 		User[] userList = new User[max];
-		int userCnt = 4;
 		Item[] itemList = new Item[max];
-		int itemCnt = 4;
 		Cart[] cartList = new Cart[max];
+		int userCnt = 4;
+		int itemCnt = 4;
 		int cartCnt = 0;
 		Scanner sc = new Scanner(System.in);
 
+		// 유저리스트 클래스배열에 값들을 넣기
 		int idx = 0;
 		for (String u : userIdList) {
 
@@ -29,6 +29,7 @@ public class _19클배_장바구니 {
 			userList[idx++] = temp;
 		}
 
+		// 아이템리스트 클래스배열에 값들을 넣기
 		for (int i = 0; i < itemNameList.length; i += 1) {
 
 			Item temp = new Item();
@@ -39,14 +40,6 @@ public class _19클배_장바구니 {
 			itemList[i] = temp;
 		}
 
-		// 유저목록 확인
-		for (int i = 0; i < userList.length; i += 1) {
-			if (userList[i] == null) {
-				break;
-			}
-
-			System.out.println(i + userList[i].id);
-		}
 		int log = -1;
 		while (true) {
 			System.out.println("[0] 종료");
@@ -65,6 +58,7 @@ public class _19클배_장바구니 {
 				break;
 			} else if (sel == 1 && log == -1) {
 				// 로그인
+
 				System.out.print("[로그인] 아이디 입력 : ");
 				String id = sc.next();
 				sc.nextLine();
@@ -94,6 +88,7 @@ public class _19클배_장바구니 {
 					// 관리자메뉴
 
 					while (true) {
+
 						// 아이템들 조회
 						idx = 0;
 						for (Item i : itemList) {
@@ -108,7 +103,7 @@ public class _19클배_장바구니 {
 						System.out.print("[1] 아이템 추가 ");
 						System.out.print("[2] 아이템 삭제 ");
 						System.out.print("[3] 최신순(주문정보) ");
-						System.out.print("[4] 로그아웃");
+						System.out.print("[4] 로그아웃 ");
 						int input = sc.nextInt();
 
 						if (input == 4) {
@@ -215,7 +210,9 @@ public class _19클배_장바구니 {
 									System.err.println("아이템 번호를 확인하세요.");
 									continue;
 								}
+
 								Cart temp = new Cart();
+
 								temp.userId = userList[log].id;
 								temp.itemName = itemList[item].name;
 								cartList[cartCnt++] = temp;
@@ -223,6 +220,7 @@ public class _19클배_장바구니 {
 							}
 						} else if (input == 2) {
 							// 주문확인
+
 							for (Cart c : cartList) {
 
 								if (c == null) {
@@ -236,33 +234,30 @@ public class _19클배_장바구니 {
 						} else if (input == 3) {
 							// 탈퇴(그 회원 주문서 동시에 삭제)
 
+							// 삭제하기 전에 로그값을 임시로 저장하기
+							String logTemp = userList[log].id;
+
 							// userList에서 삭제하고 당기기
 							for (int i = log; i < userCnt - 1; i += 1) {
-								System.out.println(Arrays.deepToString(userList));
 								userList[i] = userList[i + 1];
 								userList[i + 1] = null;
 							}
-							System.out.println(Arrays.deepToString(userList));
+							userCnt -= 1;
+							// *******************userList에서 유저를 삭제했으므로 log값이 바뀌었다.****************
 
 							// cartList에서 삭제하고 당기기
-							for (int i = 0; i < cartList.length; i += 1) {
+							for (int i = 0; i < cartCnt; i += 1) {
 
-								if (cartList[i] == null) {
-									break;
-								}
+								if (cartList[i].userId.equals(logTemp)) {
 
-								System.out.println("log " + log);
-								System.out.println(cartList[i].userId);
-								System.out.println(userList[log].id);
-								String temp = "";
-								temp = userIdList[log];
-								System.out.println(temp);
-
-								if (cartList[i].userId.equals(temp)) {
-									System.err.println("일치");
+									for (int j = i; j < cartCnt; j += 1) {
+										cartList[j] = cartList[j + 1];
+										cartList[j + 1] = null;
+									}
+									i -= 1;
+									cartCnt -= 1;
 								}
 							}
-							userCnt -= 1;
 							log = -1;
 							break;
 						}
@@ -270,6 +265,40 @@ public class _19클배_장바구니 {
 				}
 			} else if (sel == 2 && log == -1) {
 				// 회원가입
+
+				while (true) {
+					System.out.println("[ 회원 가입 ]");
+					System.out.print("아이디를 입력하세요. >> ");
+					String id = sc.next();
+					sc.nextLine();
+
+					// id 중복체크
+					boolean isDupl = false;
+
+					for (User u : userList) {
+
+						if (u == null) {
+							break;
+						}
+
+						if (id.equals(u.id)) {
+							isDupl = true;
+							break;
+						}
+					}
+
+					if (isDupl) {
+						System.err.println("이미 존재하는 아이디입니다.");
+						continue;
+					}
+
+					User temp = new User();
+
+					temp.id = id;
+					userList[userCnt] = temp;
+					userCnt += 1;
+					break;
+				}
 			}
 		}
 		sc.close();
