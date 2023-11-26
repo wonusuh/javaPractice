@@ -74,10 +74,11 @@ public class _28폭파_복습1 {
 
 				int y = bombs[0][0];
 				int x = bombs[0][1];
-				
+
 				// 주변에 폭탄이 있는지 검사하기전에 배열의 0번째에 있는 폭탄 먼저 터뜨리기
-				
+
 				// y, x 기준으로 -1 ~ 1 을 조사
+				// y 좌표 조사
 				for (int i = -1; i <= 1; i += 1) {
 
 					if (y + i >= 0 && y + i < size) {
@@ -88,6 +89,7 @@ public class _28폭파_복습1 {
 					}
 				}
 
+				// x좌표 조사
 				for (int i = -1; i <= 1; i += 1) {
 
 					if (x + i >= 0 && x + i < size) {
