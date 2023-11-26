@@ -62,7 +62,7 @@ public class _28폭파_정답 {
 				}
 				System.out.println();
 			}
-			System.out.println("5번 폭파");
+			System.out.print("5번 폭파 >> ");
 
 			int sel = sc.nextInt();
 
