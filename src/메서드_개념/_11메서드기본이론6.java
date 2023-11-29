@@ -29,6 +29,7 @@ public class _11메서드기본이론6 {
 		System.out.println(e6.result);
 
 		int result = e7.plus(10, 3);
+
 		System.out.println(result);
 	}
 }

@@ -79,6 +79,19 @@ class Score {
 		}
 	}
 
+	int findHak(int idx) {
+
+		int score = 0;
+
+		for (int i = 0; i < this.students.length; i += 1) {
+
+			if (idx == this.students[i][0]) {
+				score = this.students[i][1];
+			}
+		}
+		return score;
+	}
+
 	void scoreByHak() {
 		System.out.println("q6");
 
@@ -86,14 +99,8 @@ class Score {
 			System.out.print(this.students[i][0] + ":" + this.students[i][1] + " ");
 		}
 		System.out.print("학번을 입력하세요. >> ");
-		int input = this.sc.nextInt();
-
-		for (int i = 0; i < this.students.length; i += 1) {
-
-			if (input == this.students[i][0]) {
-				System.out.println(this.students[i][1]);
-			}
-		}
+		int result = findHak(this.sc.nextInt());
+		System.out.println(result);
 	}
 
 	void showFirst() {
