@@ -6,11 +6,10 @@ class TicTacToe {
 	Scanner sc = new Scanner(System.in);
 	String[][] game;
 	String condition = "";
-	final int SIZE = 3;
-	int turn = 1, win, cnt;
+	int size = 3, turn = 1, win, cnt;
 
-	void init() {
-		game = new String[SIZE][SIZE];
+	void init() {// 초기값
+		game = new String[size][size];
 		for (int i = 0; i < game.length; i += 1) {
 			for (int j = 0; j < game[i].length; j += 1) {
 				game[i][j] = "[ ]";
@@ -18,7 +17,7 @@ class TicTacToe {
 		}
 	}
 
-	void display() {
+	void display() {// 게임 화면 출력
 		for (int i = 0; i < game.length; i += 1) {
 			for (int j = 0; j < game[i].length; j += 1) {
 				System.out.print(game[i][j]);
@@ -29,7 +28,7 @@ class TicTacToe {
 
 	boolean checkIdxRange(int one, int two) {
 		boolean check = false;
-		if (one < 0 || one > SIZE - 1 || two < 0 || two > SIZE - 1) {
+		if (one < 0 || one > size - 1 || two < 0 || two > size - 1) {
 			check = true;
 		}
 		return check;
@@ -55,7 +54,7 @@ class TicTacToe {
 	}
 
 	void checkVertical() {
-		for (int i = 0; i < SIZE; i += 1) {
+		for (int i = 0; i < size; i += 1) {
 			if (!game[0][i].equals("[ ]") && (game[0][i] == game[1][i] && game[1][i] == game[2][i])) {
 				win = turn;
 				condition = "세로";
@@ -63,8 +62,8 @@ class TicTacToe {
 		}
 	}
 
-	void checkHorizontal() {
-		for (int i = 0; i < SIZE; i += 1) {
+	void checkHorizon() {
+		for (int i = 0; i < size; i += 1) {
 			if (!game[i][0].equals("[ ]") && (game[i][0] == game[i][1] && game[i][1] == game[i][2])) {
 				win = turn;
 				condition = "가로";
@@ -72,7 +71,7 @@ class TicTacToe {
 		}
 	}
 
-	void whosTurn() {
+	void printWhosTurn() {
 		if (turn == 1) {
 			System.out.println("[O]턴");
 		} else if (turn == 2) {
@@ -80,14 +79,14 @@ class TicTacToe {
 		}
 	}
 
-	void check1() {
+	void checkBackslash() {
 		if (!game[0][0].equals("[ ]") && (game[0][0].equals(game[1][1]) && game[1][1].equals(game[2][2]))) {
 			win = turn;
 			condition = "\\";
 		}
 	}
 
-	void check2() {
+	void checkSlash() {
 		if (!game[0][2].equals("[ ]") && (game[0][2].equals(game[1][1]) && game[1][1].equals(game[2][0]))) {
 			win = turn;
 			condition = "/";
@@ -114,10 +113,10 @@ class TicTacToe {
 		init();
 		while (true) {
 			display();
-			checkHorizontal();
+			checkHorizon();
 			checkVertical();
-			check1();
-			check2();
+			checkBackslash();
+			checkSlash();
 			if (checkDraw()) {
 				System.out.println("비겼습니다.");
 				break;
@@ -131,7 +130,7 @@ class TicTacToe {
 				System.out.printf("p%s %s 승리", turn, condition);
 				break;
 			}
-			whosTurn();
+			printWhosTurn();
 			System.out.print("y좌표 입력 >> ");
 			int y = sc.nextInt();
 			System.out.print("x좌표 입력 >> ");
