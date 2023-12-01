@@ -5,20 +5,20 @@ import java.util.Scanner;
 class Client {
 	String id, name;
 
-	void setId(String id) {
-		this.id = id;
-	}
-
 	String getId() {
 		return id;
 	}
 
-	void setName(String name) {
-		this.name = name;
+	void setId(String id) {
+		this.id = id;
 	}
 
 	String getName() {
 		return name;
+	}
+
+	void setName(String name) {
+		this.name = name;
 	}
 }
 

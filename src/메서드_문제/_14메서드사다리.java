@@ -68,9 +68,9 @@ class GameLadder {
 					} else if (j == 4) {
 						System.out.print("─┤ ");
 					} else {
-						if (ladder[i][j - 1] != 0) {
+						if (ladder[i][j - 1] == 1) {
 							System.out.print("─┤ ");
-						} else if (ladder[i][j + 1] != 0) {
+						} else if (ladder[i][j + 1] == 1) {
 							System.out.print(" ├─");
 						}
 					}
@@ -100,13 +100,17 @@ class GameLadder {
 			if (ladder[i][x] == 1) {
 				if (x != 0 && x != 4) {
 					if (ladder[i][x - 1] == 1) {
+						ladder[i][x] = 2;
 						x -= 1;
 					} else if (ladder[i][x + 1] == 1) {
+						ladder[i][x] = 2;
 						x += 1;
 					}
 				} else if (x == 0) {
+					ladder[i][x] = 2;
 					x += 1;
 				} else if (x == 4) {
+					ladder[i][x] = 2;
 					x -= 1;
 				}
 			}
@@ -121,6 +125,23 @@ class GameLadder {
 
 	void showInVertical() {
 		int idx = 0, cnt = 0;
+		for (int i = 0; i < menu.length; i += 1) {
+			if (idx <= menu[i].length() - 1) {
+				System.out.print(menu[i].charAt(idx) + "  ");
+			} else {
+				System.out.print("   ");
+				cnt += 1;
+				if (cnt == menu.length) {
+					break;
+				}
+			}
+			if (i == menu.length - 1) {
+				System.out.println();
+				idx += 1;
+				cnt = 0;
+				i = -1;
+			}
+		}
 	}
 
 	void run() {
