@@ -62,13 +62,18 @@ class Racing {
 	}
 
 	void moveHorses() {
+
 		int tempRank = this.cntForRank;
+
 		for (int i = 0; i < horses.length; i += 1) {
+
 			int prePos = horses[i].pos;
+
 			if (horses[i].win) {
 				continue;
 			}
 			horses[i].pos = prePos + rn.nextInt(4 - 1 + 1) + 1;
+
 			if (horses[i].pos >= 19) {
 				horses[i].pos = 19;
 				horses[i].win = true;
@@ -81,14 +86,17 @@ class Racing {
 
 	void run() {
 		init();
+
 		while (true) {
 			showTrack();
+
 			if (this.cntForRank == 5) {
 				return;
 			}
 			moveHorses();
+
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -98,7 +106,9 @@ class Racing {
 
 public class q2 {
 	public static void main(String[] args) {
+
 		Racing game = new Racing();
+
 		game.run();
 	}
 }

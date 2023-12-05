@@ -4,11 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 class Word {
+
 	String word;
 	int ranPos;
 }
 
 class WordDAO {
+
 	Word[] list;
 	Random ran = new Random();
 	Scanner sc = new Scanner(System.in);
@@ -19,7 +21,9 @@ class WordDAO {
 		list = new Word[simple.length];
 
 		for (int i = 0; i < simple.length; i += 1) {
+
 			Word w = new Word();
+
 			w.word = simple[i];
 			w.ranPos = ran.nextInt((w.word.length() - 1) - 0 + 1) + 0;
 			list[i] = w;
@@ -27,6 +31,7 @@ class WordDAO {
 	}
 
 	void shuffle() {
+
 		for (int i = 0; i < 1000; i += 1) {
 
 			int num = ran.nextInt((list.length - 1) - 0 + 1) + 0;
@@ -38,7 +43,9 @@ class WordDAO {
 	}
 
 	void printWithAStar(int idx) {
+
 		for (int i = 0; i < list[idx].word.length(); i += 1) {
+
 			if (i == list[idx].ranPos) {
 				System.out.print("*");
 			} else {
@@ -77,8 +84,11 @@ class WordDAO {
 }
 
 public class q3 {
+
 	public static void main(String[] args) {
+
 		WordDAO dao = new WordDAO();
+
 		dao.run();
 	}
 }
