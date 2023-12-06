@@ -8,6 +8,7 @@ public class MemberController {
 	MemberDAO dao;
 
 	void init() {
+
 		sc = new Scanner(System.in);
 		dao = new MemberDAO();
 	}
@@ -17,6 +18,7 @@ public class MemberController {
 
 		while (true) {
 			System.out.println("[1]추가 [2]삭제 [3]수정 [4]출력 [0]종료");
+
 			int sel = sc.nextInt();
 
 			if (sel == 1) {
@@ -31,5 +33,6 @@ public class MemberController {
 				break;
 			}
 		}
+		sc.close();
 	}
 }

@@ -9,6 +9,7 @@ public class MemberDAO {// crud
 	int cnt;
 
 	void init() {
+
 		sc = new Scanner(System.in);
 	}
 
@@ -142,7 +143,8 @@ public class MemberDAO {// crud
 			if (memberList[i] == null) {
 				break;
 			}
-			System.out.printf("%s : %s : %s\n", memberList[i].getId(), memberList[i].getPw(), memberList[i].getName());
+			memberList[i].printInfo();
+			System.out.println();
 		}
 	}
 }

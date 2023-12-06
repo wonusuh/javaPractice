@@ -1,6 +1,6 @@
-package member;
+package movie;
 
-public class Member { // 데이터 클래스 = > DTO, VO
+public class User {
 
 	String id, pw, name;
 
@@ -26,9 +26,5 @@ public class Member { // 데이터 클래스 = > DTO, VO
 
 	void setName(String name) {
 		this.name = name;
-	}
-
-	void printInfo() {
-		System.out.printf("%s : %s : %s", id, pw, name);
 	}
 }

@@ -235,12 +235,13 @@ class CartDAO {
 			}
 		}
 
-		for (int i = 0; i < check.length; i += 1) {
+		for (int i = 0; i < check.length; i += 1) {// 출력
+			System.out.printf("%s==> ", iList[i].getName());
 
 			for (int j = 0; j < check[i].length; j += 1) {
 
 				if (check[i][j]) {
-					System.out.print(iList[j].getName());
+					System.out.print(uList[j].getName() + " ");
 				}
 			}
 			System.out.println();
