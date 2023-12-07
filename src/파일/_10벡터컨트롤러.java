@@ -39,7 +39,8 @@ class FileEx {
 		try {
 
 			int input = sc.nextInt();
-
+			System.out.println("test");
+			sc.nextLine();
 			int[] copy = arr;
 			arr = new int[++size];
 
@@ -99,7 +100,6 @@ class FileEx {
 			for (int i = 0; i < arr.length; i += 1) {
 				data += arr[i];
 			}
-
 			fr.write(data);
 			System.out.println("성공");
 		} catch (FileNotFoundException e) {
@@ -109,7 +109,7 @@ class FileEx {
 		}
 	}
 
-	void road() {
+	void load() {
 
 		File file = new File(CUR_PATH + fileName);
 
@@ -124,7 +124,7 @@ class FileEx {
 
 			while (true) {
 
-				int read = fr.read();
+				int read = br.read();
 
 				if (read == -1) {
 					break;
@@ -137,6 +137,7 @@ class FileEx {
 			for (int i = 0; i < data.length(); i += 1) {
 				arr[i] = Integer.parseInt(data.substring(i, i + 1));
 			}
+			System.out.println("로드 성공");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -160,7 +161,7 @@ class FileEx {
 				} else if (sel == 3) {
 					save();
 				} else if (sel == 4) {
-					road();
+					load();
 				} else if (sel == 5) {
 					break;
 				}
