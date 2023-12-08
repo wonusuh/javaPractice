@@ -158,8 +158,13 @@ public class Controller {
 				// 점수 데이터 만들기
 				String subData = "";
 
-				for (Subject s : subDAO.subList) {
-					subData += s.getStuNo() + "/" + s.getSubName() + "/" + s.getScore() + "\n";
+				for (int i = 0; i < subDAO.subList.length; i += 1) {
+					subData += subDAO.subList[i].getStuNo() + "/" + subDAO.subList[i].getSubName() + "/"
+							+ subDAO.subList[i].getScore();
+
+					if (i != subDAO.subList.length - 1) {
+						subData += "\n";
+					}
 				}
 
 				try (FileWriter fr = new FileWriter(CUR_PATH + subFileName)) {
@@ -181,12 +186,13 @@ public class Controller {
 
 					while (true) {
 
-						String[] datas = br.readLine().split("\n");
-						System.out.println(Arrays.toString(datas));
+						String data = br.readLine();
 
-						if (datas == null) {
+						if (data == null) {
 							break;
 						}
+						String[] datas = data.split("\n");
+						System.out.println(Arrays.toString(datas));
 					}
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
