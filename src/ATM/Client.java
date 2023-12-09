@@ -1,18 +1,27 @@
 package ATM;
 
 public class Client {
-	int clientNo, amountOfAccounts; // clientNo : 1001부터 자동증가
-
-	int getAmountOfAccounts() {
-		return amountOfAccounts;
-	}
-
-	void setAmountOfAccounts(int amountOfAccounts) {
-		this.amountOfAccounts = amountOfAccounts;
-	}
-
+	int clientNo, numberOfAccounts; // clientNo : 1001부터 자동증가
 	String id, pw, name;
-	Account[] accounts = new Account[3];
+	Account[] accounts;
+
+	Client() {
+		this.accounts = new Account[3];
+	}
+
+	/**
+	 * @return the numberOfAccounts
+	 */
+	public int getNumberOfAccounts() {
+		return numberOfAccounts;
+	}
+
+	/**
+	 * @param numberOfAccounts the numberOfAccounts to set
+	 */
+	public void setNumberOfAccounts(int numberOfAccounts) {
+		this.numberOfAccounts = numberOfAccounts;
+	}
 
 	int getClientNo() {
 		return clientNo;

@@ -13,6 +13,10 @@ public class Util {
 	final String CUR_PATH = System.getProperty("user.dir") + "//src//ATM//", CLIENTS_FILE = "client.txt",
 			ACCOUNTS_FILE = "account.txt";
 
+	Util() { // 기본생성자
+		sc = new Scanner(System.in);
+	}
+
 	Util(Controller ctr) { // 생성자
 		sc = new Scanner(System.in);
 		tempData(ctr);
@@ -23,8 +27,10 @@ public class Util {
 			System.out.printf("메뉴(%d ~ %d) >> ", start, end);
 			try {
 				int input = sc.nextInt();
-				if (input < start || input > end)
+				if (input < start || input > end) {
+					System.err.println("메뉴를 확인하세요.");
 					continue;
+				}
 				return input;
 			} catch (Exception e) {
 				System.err.println("정수를 입력하세요.");
@@ -58,15 +64,13 @@ public class Util {
 			for (int i = 0; i < clients.length; i += 1) {
 				data += clients[i].getClientNo() + "/" + clients[i].getId() + "/" + clients[i].getPw() + "/"
 						+ clients[i].getName();
-				if (i != clients.length - 1) {
+				if (i != clients.length - 1)
 					data += "\n";
-				}
 			}
 			for (int i = 0; i < accounts.length; i += 1) {
 				data2 += accounts[i].getId() + "/" + accounts[i].getAccNumber() + "/" + accounts[i].getMoney();
-				if (i != accounts.length - 1) {
+				if (i != accounts.length - 1)
 					data2 += "\n";
-				}
 			}
 			fw.write(data);
 			System.out.printf("%s 에 저장했습니다.\n", CLIENTS_FILE);
@@ -77,30 +81,52 @@ public class Util {
 		}
 	}
 
-	void load() { // client.txt 파일에있는 데이터를 배열에 저장하고 리턴합니다.
+	String loadClients() { // client.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
 		File file1 = new File(CUR_PATH + CLIENTS_FILE);
 		if (!file1.exists()) {
 			System.err.printf("%s 이 존재해야합니다.", CLIENTS_FILE);
-			return;
+			return null;
 		}
+		String data = "";
 		try (FileReader fr1 = new FileReader(file1); BufferedReader br1 = new BufferedReader(fr1)) {
-			int cnt = 0;
-			String data = br1.readLine();
 			while (true) {
-				System.out.println(data);
-				if (data == null) {
+				String oneLine = br1.readLine();
+				if (oneLine == null)
 					break;
-				}
-				cnt += 1;
+				data += oneLine + "\n";
 			}
-			Client[] temp = new Client[cnt];
-			for (int i = 0; i < temp.length; i += 1) {
-				System.out.println(data);
-			}
+			data = data.substring(0, data.length() - 1);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.printf("%s 를 로드했습니다.\n", CLIENTS_FILE);
+		return data;
+	}
+
+	String loadAccounts() { // account.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
+		File file = new File(CUR_PATH + ACCOUNTS_FILE);
+		if (!file.exists()) {
+			System.err.printf("%s 이 존재해야합니다.", ACCOUNTS_FILE);
+			return null;
+		}
+		String data = "";
+		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+			while (true) {
+				String oneLine = br.readLine();
+				System.out.println(oneLine);
+				if (oneLine == null)
+					break;
+				data += oneLine + "\n";
+			}
+			data = data.substring(0, data.length() - 1);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.printf("%s 를 로드했습니다.\n", ACCOUNTS_FILE);
+		return data;
 	}
 }
