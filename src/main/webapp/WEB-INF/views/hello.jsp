@@ -12,6 +12,7 @@
 	<hr>
 	현재 날짜와 시간은
 	<%=LocalDateTime.now()%>입니다.
-
+	<hr>
+	메세지 : ${msg}
 </body>
 </html>
