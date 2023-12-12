@@ -1,4 +1,4 @@
-package School_서원우;
+package SchoolVer2_서원우;
 
 import java.io.BufferedReader;
 import java.io.File;

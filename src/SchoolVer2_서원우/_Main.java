@@ -1,4 +1,4 @@
-package School_서원우;
+package SchoolVer2_서원우;
 
 public class _Main {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package School_서원우;
+package SchoolVer2_서원우;
 
 // 무조건 파일 업로드 먼저
 public class Controller {
@@ -51,13 +51,13 @@ public class Controller {
 			} else if (sel == 3) { // 과목추가
 
 				int hakbun = stuDAO.findStuNumByStuNum();
-				if (hakbun != -1)
-					subDAO.addASubject(hakbun, stuDAO);
+
+				subDAO.addASubject(hakbun);
 			} else if (sel == 4) { // 과목삭제
 
 				int hakbun = stuDAO.findStuNumByStuNum();
-				if (hakbun != -1)
-					subDAO.deleteASubjectByHakbun(hakbun);
+
+				subDAO.deleteSubjectsByHakbun(hakbun);
 			} else if (sel == 5) { // 전체학생목록
 				subDAO.showAllInfo(stuDAO.stuList);
 			} else if (sel == 6) { // 과목별학생목록
