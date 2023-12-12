@@ -8,42 +8,42 @@ public class Subject {
 	/**
 	 * @return the stuNo
 	 */
-	int getStuNo() {
+	public int getStuNo() {
 		return stuNo;
 	}
 
 	/**
 	 * @param stuNo the stuNo to set
 	 */
-	void setStuNo(int stuNo) {
+	public void setStuNo(int stuNo) {
 		this.stuNo = stuNo;
 	}
 
 	/**
 	 * @return the score
 	 */
-	int getScore() {
+	public int getScore() {
 		return score;
 	}
 
 	/**
 	 * @param score the score to set
 	 */
-	void setScore(int score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 
 	/**
 	 * @return the subName
 	 */
-	String getSubName() {
+	public String getSubName() {
 		return subName;
 	}
 
 	/**
 	 * @param subName the subName to set
 	 */
-	void setSubName(String subName) {
+	public void setSubName(String subName) {
 		this.subName = subName;
 	}
 }

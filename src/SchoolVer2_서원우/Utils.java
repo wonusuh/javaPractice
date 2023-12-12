@@ -12,18 +12,18 @@ import java.util.Scanner;
 
 public class Utils {
 
-	Scanner sc;
-	final String CUR_PATH;
-	Random rn;
+	public Scanner sc;
+	private final String CUR_PATH;
+	public Random rn;
 
 	// 기본생성자
-	Utils() {
+	public Utils() {
 		sc = new Scanner(System.in);
 		CUR_PATH = System.getProperty("user.dir") + "//src//School_서원우//";
 		rn = new Random();
 	}
 
-	int getInput(int start, int end) { // 메뉴를 선택할 때 입력값의 예외를 처리합니다.
+	public int getInput(int start, int end) { // 메뉴를 선택할 때 입력값의 예외를 처리합니다.
 
 		while (true) {
 
@@ -44,7 +44,7 @@ public class Utils {
 		}
 	}
 
-	String getData(String fileName) { // 파일을 읽어서 String에 저장하고 리턴합니다.
+	public String getData(String fileName) { // 파일을 읽어서 String에 저장하고 리턴합니다.
 
 		File f = new File(CUR_PATH + fileName);
 		if (!f.exists()) {
@@ -78,7 +78,7 @@ public class Utils {
 		return data;
 	}
 
-	void saveStudents(String fileName, ArrayList<Student> stuList) { // 배열을 받아와서 파일에 저장합니다.
+	public void saveStudents(String fileName, ArrayList<Student> stuList) { // 배열을 받아와서 파일에 저장합니다.
 
 		File f = new File(CUR_PATH + fileName);
 
@@ -108,7 +108,7 @@ public class Utils {
 		}
 	}
 
-	void saveSubjects(String fileName, ArrayList<Subject> subList) { // 배열을 받아와서 파일에 저장합니다.
+	public void saveSubjects(String fileName, ArrayList<Subject> subList) { // 배열을 받아와서 파일에 저장합니다.
 
 		File f = new File(CUR_PATH + fileName);
 

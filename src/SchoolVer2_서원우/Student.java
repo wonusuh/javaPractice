@@ -8,42 +8,42 @@ public class Student {
 	/**
 	 * @return the stuNo
 	 */
-	int getStuNo() {
+	public int getStuNo() {
 		return stuNo;
 	}
 
 	/**
 	 * @param stuNo the stuNo to set
 	 */
-	void setStuNo(int stuNo) {
+	public void setStuNo(int stuNo) {
 		this.stuNo = stuNo;
 	}
 
 	/**
 	 * @return the stuId
 	 */
-	String getStuId() {
+	public String getStuId() {
 		return stuId;
 	}
 
 	/**
 	 * @param stuId the stuId to set
 	 */
-	void setStuId(String stuId) {
+	public void setStuId(String stuId) {
 		this.stuId = stuId;
 	}
 
 	/**
 	 * @return the stuName
 	 */
-	String getStuName() {
+	public String getStuName() {
 		return stuName;
 	}
 
 	/**
 	 * @param stuName the stuName to set
 	 */
-	void setStuName(String stuName) {
+	public void setStuName(String stuName) {
 		this.stuName = stuName;
 	}
 }

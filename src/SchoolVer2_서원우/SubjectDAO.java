@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class SubjectDAO {
 
-	ArrayList<Subject> subList;
-	Utils ut;
+	public ArrayList<Subject> subList;
+	public Utils ut;
 
-	SubjectDAO() { // 기본생성자
+	public SubjectDAO() { // 기본생성자
 		subList = new ArrayList<Subject>();
 		ut = new Utils();
 	}
 
-	void putDataIn(String data) { // 로드해온 데이터를 subList에 넣습니다.
+	public void putDataIn(String data) { // 로드해온 데이터를 subList에 넣습니다.
 
 		String[] datas = data.split("\n");
 
@@ -28,7 +28,7 @@ public class SubjectDAO {
 		}
 	}
 
-	void showAllInfo(ArrayList<Student> stuList) { // 학생들의 모든 정보를 평균의 내림차순으로 정렬
+	public void showAllInfo(ArrayList<Student> stuList) { // 학생들의 모든 정보를 평균의 내림차순으로 정렬
 
 		if (stuList.size() == 0) {
 			System.out.println("학생이 존재하지 않습니다.");
@@ -92,19 +92,23 @@ public class SubjectDAO {
 		}
 	}
 
-	void deleteSubjectsByHakbun(int hakbun) { // 학번을 입력받아서 해당하는 학생의 과목을 전부 지웁니다.
-
+	public void deleteSubjectsByHakbun(int hakbun) { // 학번을 입력받아서 해당하는 학생의 과목을 전부 지웁니다.
+		int cnt = 0;
 		for (int i = 0; i < subList.size(); i += 1) {
 
 			if (subList.get(i).getStuNo() == hakbun) {
 				subList.remove(i);
 				i -= 1;
+				cnt += 1;
 				System.out.println("삭제했습니다.");
 			}
 		}
+		if (cnt == 0) {
+			System.out.println("과목이 존재하지 않습니다.");
+		}
 	}
 
-	void addASubject(int hakbun) { // 해당하는 학번으로 과목을 추가합니다. 과목은 중복될 수 없습니다.
+	public void addASubject(int hakbun, StudentDAO stuDAO) { // 해당하는 학번으로 과목을 추가합니다. 과목은 중복될 수 없습니다.
 		System.out.println("추가할 과목의 이름을 입력하세요. >> ");
 
 		String subName = ut.sc.next();
@@ -126,54 +130,111 @@ public class SubjectDAO {
 		temp.setScore(ut.rn.nextInt(100 - 50 + 1) + 50);
 		subList.add(temp);
 		System.out.println("과목을 추가했습니다." + temp.getSubName() + " : " + temp.getScore());
+		for (int i = 0; i < stuDAO.stuList.size(); i += 1) {
+			if (stuDAO.stuList.get(i).getStuNo() == hakbun) {
+				for (int j = 0; j < subList.size(); j += 1) {
+					if (subList.get(j).getStuNo() == hakbun) {
+						System.out.printf("%s %d ", subList.get(j).getSubName(), subList.get(j).getScore());
+					}
+				}
+				System.out.println();
+				break;
+			}
+		}
 	}
 
-	void showBySubject(ArrayList<Student> stuList) { // 과목이름을 입력받아서 학생들을 사전순으로 정렬합니다.
+	public void showBySubject(ArrayList<Student> stuList) { // 과목이름을 입력받아서 학생들을 사전순으로 정렬합니다.
 		System.out.print("과목을 입력하세요. >> ");
-
 		String subName = ut.sc.next();
-
 		ut.sc.nextLine();
+		ArrayList<StudentBySubject> result = new ArrayList<StudentBySubject>();
+		for (int i = 0; i < stuList.size(); i += 1) {
+			for (int j = 0; j < subList.size(); j += 1) {
+				if (stuList.get(i).getStuNo() == subList.get(j).getStuNo()
+						&& subList.get(j).getSubName().equals(subName)) {
+					StudentBySubject s = new StudentBySubject();
+					s.setNum(subList.get(j).getStuNo());
+					s.setName(stuList.get(i).getStuName());
+					s.setScore(subList.get(j).getScore());
+					result.add(s);
+				}
+			}
+		}
+		for (int i = 0; i < result.size(); i += 1) { // 사전순으로 정렬합니다.
+			for (int j = 0; j < result.size() - 1; j += 1) {
+				if (result.get(j).getName().compareTo(result.get(j + 1).getName()) > 0) {
+					StudentBySubject temp = result.get(j);
+					result.set(j, result.get(j + 1));
+					result.set(j + 1, temp);
+				}
+			}
+		}
+		for (StudentBySubject s : result) { // 결과를 출럭합니다.
+			System.out.printf("%d %s %d\n", s.getNum(), s.getName(), s.getScore());
+		}
+	}
 
-		ArrayList<Subject> temp = new ArrayList<Subject>(); // 해당 과목만 배열에 담습니다.
-
+	public void deleteASubjectByHakbun(int hakbun) { // 학번과 과목을 입력받아서 과목을 삭제합니다.
+		System.out.println("과목을 입력하세요. >> ");
+		String subName = ut.sc.next();
+		ut.sc.nextLine();
+		boolean check = false;
 		for (int i = 0; i < subList.size(); i += 1) {
-
-			if (subList.get(i).getSubName().equals(subName))
-				temp.add(subList.get(i));
-		}
-
-		if (temp.size() == 0) {
-			System.out.println("해당 과목의 점수를 가진 학생이 없습니다.");
-			return;
-		}
-
-		for (int i = 0; i < temp.size(); i += 1) { // 사전순으로 정렬합니다.
-
-			int min = 101, idx = -1;
-
-			for (int j = i; j < temp.size(); j += 1) {
-
-				if (temp.get(j).getScore() < min) {
-					min = temp.get(j).getScore();
-					idx = j;
-				}
-			}
-
-			Subject tempTemp = temp.get(i);
-
-			temp.set(i, temp.get(idx));
-			temp.set(idx, tempTemp);
-		}
-
-		for (Subject sub : temp) { // 결과를 학생정보와 함께 출력합니다.
-
-			for (Student stu : stuList) {
-
-				if (stu.getStuNo() == sub.getStuNo()) {
-					System.out.printf("%s %s %d점\n", stu.getStuName(), sub.getSubName(), sub.getScore());
-				}
+			if (subList.get(i).getStuNo() == hakbun && subList.get(i).getSubName().equals(subName)) {
+				subList.remove(i);
+				System.out.println("과목을 삭제했습니다.");
+				return;
 			}
 		}
+		if (!check) {
+			System.out.println("해당 과목이 존재하지 않습니다.");
+		}
+	}
+}
+
+class StudentBySubject {
+	private int num, score;
+	private String name;
+
+	/**
+	 * @return the num
+	 */
+	public int getNum() {
+		return num;
+	}
+
+	/**
+	 * @param num the num to set
+	 */
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	/**
+	 * @return the score
+	 */
+	public int getScore() {
+		return score;
+	}
+
+	/**
+	 * @param score the score to set
+	 */
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 }

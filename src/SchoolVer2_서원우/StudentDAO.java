@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class StudentDAO {
 
-	ArrayList<Student> stuList;
-	int hakbun = 1001;
-	Utils ut;
+	public ArrayList<Student> stuList;
+	private int hakbun = 1001;
+	private Utils ut;
 
-	StudentDAO() { // 기본생성자
+	public StudentDAO() { // 기본생성자
 		stuList = new ArrayList<Student>();
 		ut = new Utils();
 	}
 
-	void putDataIn(String data) { // 로드해온 데이터를 stuList에 넣습니다.
+	public void putDataIn(String data) { // 로드해온 데이터를 stuList에 넣습니다.
 
 		String[] datas = data.split("\n");
 
@@ -30,7 +30,7 @@ public class StudentDAO {
 		}
 	}
 
-	int findStuNumById(String id) { // id로 검색해서 학생번호를 리턴합니다.
+	private int findStuNumById(String id) { // id로 검색해서 학생번호를 리턴합니다.
 
 		for (Student s : stuList) {
 
@@ -43,7 +43,7 @@ public class StudentDAO {
 		return -1;
 	}
 
-	void addAStudent() { // 학생 한 명을 추가합니다.
+	public void addAStudent() { // 학생 한 명을 추가합니다.
 		System.out.println("[ 학생 추가 ]");
 		System.out.println("등록할 id를 입력하세요. >> ");
 
@@ -71,7 +71,7 @@ public class StudentDAO {
 		}
 	}
 
-	int deleteAStudent() { // id를 입력받아 학생을 삭제하고 학번을 리턴합니다.
+	public int deleteAStudent() { // id를 입력받아 학생을 삭제하고 학번을 리턴합니다.
 		System.out.println("삭제할 id를 입력하세요. >> ");
 
 		String id = ut.sc.next();
@@ -94,7 +94,7 @@ public class StudentDAO {
 		return -1;
 	}
 
-	int findStuNumByStuNum() {
+	public int findStuNumByStuNum() { // 학번이 있는지 검색하고 그 학번을 리턴합니다.
 		System.out.println("학번을 입력하세요. >> ");
 
 		int num = ut.sc.nextInt();
