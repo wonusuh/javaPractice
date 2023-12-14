@@ -5,5 +5,6 @@ public class _01상속 {
 		System.out.println("상속이란1");
 		System.out.println("test2");
 		System.out.println("test3");
+		System.out.println("test4");
 	}
 }
