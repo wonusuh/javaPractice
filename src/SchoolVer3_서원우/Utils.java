@@ -1,4 +1,4 @@
-package SchoolVer2_서원우;
+package SchoolVer3_서원우;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,11 +16,17 @@ public class Utils {
 	private final String CUR_PATH;
 	public Random rn;
 
-	// 기본생성자
-	public Utils() {
+	// 싱글턴으로 바꾸기
+	private Utils() {
 		sc = new Scanner(System.in);
 		CUR_PATH = System.getProperty("user.dir") + "//src//" + this.getClass().getPackageName() + "//";
 		rn = new Random();
+	}
+
+	private static Utils instance = new Utils();
+
+	public static Utils getInstance() {
+		return instance;
 	}
 
 	public int getInput(int start, int end) { // 메뉴를 선택할 때 입력값의 예외를 처리합니다.

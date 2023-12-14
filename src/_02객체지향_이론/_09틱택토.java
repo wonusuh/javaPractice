@@ -100,7 +100,7 @@ class TicTacToe {
 		System.out.printf("[%s]의 턴 입니다.\n", player.getName());
 	}
 
-	private void write() {
+	private void writeOX() {
 		System.out.println("y좌표를 입력하세요.(1~3) >> ");
 		int y = sc.nextInt() - 1;
 		System.out.println("x좌표를 입력하세요.(1~3) >> ");
@@ -183,7 +183,7 @@ class TicTacToe {
 				break;
 			}
 			printCurPlayer();
-			write();
+			writeOX();
 			changeTurn();
 		}
 		sc.close();
