@@ -49,12 +49,13 @@ public class ShopController {
 					if (choice == 0) { // 0.뒤로가기
 						break;
 					} else if (choice == 1) { // 1.아이템관리
-						itemDAO.manageItems(cartDAO);
+						itemDAO.manageItem(cartDAO);
 					} else if (choice == 2) { // 2.카테고리관리
 						itemDAO.manageCategory(cartDAO);
 					} else if (choice == 3) { // 3.장바구니관리
 						cartDAO.manageCart();
 					} else if (choice == 4) { // 4.유저관리
+						userDAO.manageUser(cartDAO);
 					}
 				}
 			}

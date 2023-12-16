@@ -32,7 +32,7 @@ public class ItemDAO {
 		}
 	}
 
-	public void manageItems(CartDAO cartDAO) { // 아이템을 관리합니다.
+	public void manageItem(CartDAO cartDAO) { // 아이템을 관리합니다.
 		while (true) {
 			showAllItems();
 			System.out.println("[1. 아이템 추가] [2. 아이템 삭제] [0. 뒤로가기]");
