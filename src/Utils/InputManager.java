@@ -17,7 +17,7 @@ public class InputManager {
 	public int getValue(int start, int end) { // 입력값을 예외처리합니다.
 		while (true) {
 			try {
-				System.out.printf("(%d ~ %d)메뉴를 선택하세요. >> ", start, end);
+				System.out.printf("(%d ~ %d) 숫자를 선택하세요. >> ", start, end);
 				int input = sc.nextInt();
 				if (input == 100)
 					return input;

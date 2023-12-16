@@ -53,6 +53,7 @@ public class ShopController {
 					} else if (choice == 2) { // 2.카테고리관리
 						itemDAO.manageCategory(cartDAO);
 					} else if (choice == 3) { // 3.장바구니관리
+						cartDAO.manageCart();
 					} else if (choice == 4) { // 4.유저관리
 					}
 				}
