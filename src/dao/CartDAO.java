@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Utils.InputManager;
 import vo.Cart;
+import vo.Item;
 import vo.User;
 
 public class CartDAO {
@@ -92,5 +93,21 @@ public class CartDAO {
 			cartList.add(temp);
 			System.out.printf("%s 를 장바구니에 담았습니다.\n", itemDAO.itemList.get(sel - 1).getName());
 		}
+	}
+
+	public void showMyCart(ItemDAO itemDAO, User user) { // 로그인중인 유저가 장바구니에 담은 객체만 출력합니다.
+		int total = 0;
+		for (Cart c : cartList) {
+			if (user.getUserId().equals(c.getUserId())) {
+				for (Item i : itemDAO.itemList) {
+					if (c.getItemName().equals(i.getName())) {
+						total += i.getPrice();
+						System.out.printf("%s : %d원\n", c.getItemName(), i.getPrice());
+						break;
+					}
+				}
+			}
+		}
+		System.out.println("총 금액 : " + total);
 	}
 }

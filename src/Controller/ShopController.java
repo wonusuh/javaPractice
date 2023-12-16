@@ -5,6 +5,8 @@ import Utils.InputManager;
 import dao.CartDAO;
 import dao.ItemDAO;
 import dao.UserDAO;
+import vo.Cart;
+import vo.Item;
 import vo.User;
 
 public class ShopController {
@@ -66,6 +68,19 @@ public class ShopController {
 		System.out.println("탈퇴했습니다.");
 	}
 
+	private void showEarnings() {
+		int earnings = 0;
+		for (Cart c : cartDAO.cartList) {
+			for (Item i : itemDAO.itemList) {
+				if (c.getItemName().equals(i.getName())) {
+					earnings += i.getPrice();
+					break;
+				}
+			}
+		}
+		System.out.printf("매출 : %d원", earnings);
+	}
+
 	// System.out.println("[1.가입] [2.탈퇴] [3.로그인] [4.로그아웃]" + "\n[100.관리자] [0.종료] ");
 	// System.out.println("[1.아이템관리] [2.카테고리관리] [3.장바구니관리] [4.유저관리] [0.뒤로가기] ");
 	// System.out.println("[1.쇼핑] [2.장바구니목록] [0.뒤로가기]");
@@ -86,15 +101,22 @@ public class ShopController {
 					continue;
 				while (true) {
 					System.out.printf("[ %s 로그인 중 ]\n", log.getUserName());
-					System.out.println("[1. 쇼핑] [2. 내 장바구니] [3. 주문 한 개 삭제] [4. 장바구니 전체 비우기] [5. 로그아웃] [6. 회원 탈퇴]");
+					System.out.println("[1. 쇼핑] [2. 내 장바구니] [3. 삭제] [4. 구입] [5. 로그아웃] [6. 회원 탈퇴]");
 					int choice = im.getValue(0, 6);
 					if (choice == 1) {
 						cartDAO.shopping(itemDAO, log);
 					} else if (choice == 2) {
+						cartDAO.showMyCart(itemDAO, log);
 					} else if (choice == 3) {
+						cartDAO.deleteAllOrdersByUser(log);
+						System.out.println("장바구니를 모두 비웠습니다.");
 					} else if (choice == 4) {
+						log = null;
+						System.out.println("로그아웃 성공");
+						break;
 					} else if (choice == 5) {
 						log = null;
+						System.out.println("로그아웃 성공");
 						break;
 					} else if (choice == 6) {
 						leaveMembership();
@@ -119,6 +141,7 @@ public class ShopController {
 					}
 				}
 			} else if (sel == 0) {
+				showEarnings();
 				break;
 			}
 		}
