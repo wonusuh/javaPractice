@@ -6,7 +6,7 @@ import Utils.InputManager;
 import vo.Item;
 
 public class ItemDAO {
-	private ArrayList<Item> itemList;
+	public ArrayList<Item> itemList;
 	private InputManager im;
 
 	public ItemDAO() { // 생성자 입니다.
@@ -26,9 +26,10 @@ public class ItemDAO {
 		}
 	}
 
-	private void showAllItems() { // itemList 에있는 객체들의 정보를 출력합니다.
+	public void showAllItems() { // itemList 에있는 객체들의 정보를 출력합니다.
+		int idx = 0;
 		for (Item i : itemList) {
-			System.out.printf("%10s%10d%10s\n", i.getName(), i.getPrice(), i.getCategory());
+			System.out.printf("(%d)%10s%10d%10s\n", ++idx, i.getName(), i.getPrice(), i.getCategory());
 		}
 	}
 

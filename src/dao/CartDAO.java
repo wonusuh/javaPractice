@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Utils.InputManager;
 import vo.Cart;
+import vo.User;
 
 public class CartDAO {
 	public ArrayList<Cart> cartList;
@@ -61,6 +62,35 @@ public class CartDAO {
 			int idx = im.getValue(1, cartList.size()) - 1;
 			System.out.println(cartList.get(idx).getUserId() + "/" + cartList.get(idx).getItemName() + " 삭제했습니다.");
 			cartList.remove(idx);
+		}
+	}
+
+	public void deleteAllOrdersByUser(User user) { // 유저의 장바구니를 모두 비웁니다.
+		for (int i = 0; i < cartList.size(); i += 1) {
+			if (user.getUserId().equals(cartList.get(i).getUserId())) {
+				cartList.remove(i);
+				i -= 1;
+			}
+		}
+	}
+
+	public void shopping(ItemDAO itemDAO, User user) { // 아이템목록을 출력하고 Cart객체를 생성해서 배열에 담습니다.
+		if (itemDAO.itemList.size() == 0) {
+			System.out.println("현재 구매할 수 있는 아이템이 없습니다.");
+			return;
+		}
+		while (true) {
+			itemDAO.showAllItems();
+			System.out.print("장바구니에 담을 물건을 선택하세요. >> (0)뒤로가기 ");
+			System.out.printf("(%d) ~ (%d)\n", 1, itemDAO.itemList.size());
+			int sel = im.getValue(0, itemDAO.itemList.size());
+			if (sel == 0)
+				break;
+			Cart temp = new Cart();
+			temp.setUserId(user.getUserId());
+			temp.setItemName(itemDAO.itemList.get(sel - 1).getName());
+			cartList.add(temp);
+			System.out.printf("%s 를 장바구니에 담았습니다.\n", itemDAO.itemList.get(sel - 1).getName());
 		}
 	}
 }
