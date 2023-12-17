@@ -103,22 +103,22 @@ public class ShopController {
 					System.out.printf("[ %s 로그인 중 ]\n", log.getUserName());
 					System.out.println("[1. 쇼핑] [2. 내 장바구니] [3. 삭제] [4. 구입] [5. 로그아웃] [6. 회원 탈퇴]");
 					int choice = im.getValue(0, 6);
-					if (choice == 1) {
+					if (choice == 1) { // 1. 쇼핑
 						cartDAO.shopping(itemDAO, log);
-					} else if (choice == 2) {
+					} else if (choice == 2) { // 2. 내 장바구니
 						cartDAO.showMyCart(itemDAO, log);
-					} else if (choice == 3) {
+					} else if (choice == 3) { // 3. 삭제
 						cartDAO.deleteAllOrdersByUser(log);
 						System.out.println("장바구니를 모두 비웠습니다.");
-					} else if (choice == 4) {
+					} else if (choice == 4) { // 4. 구입
 						log = null;
 						System.out.println("로그아웃 성공");
 						break;
-					} else if (choice == 5) {
+					} else if (choice == 5) { // 5. 로그아웃
 						log = null;
 						System.out.println("로그아웃 성공");
 						break;
-					} else if (choice == 6) {
+					} else if (choice == 6) { // 6. 회원 탈퇴
 						leaveMembership();
 						if (log == null)
 							break;

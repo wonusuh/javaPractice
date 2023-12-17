@@ -16,7 +16,7 @@ public class CartDAO {
 		im = InputManager.getInstance();
 	}
 
-	public void putDataIn(String data) { // 받아온 데이터를 배열에 저장합니다.
+	public void putDataIn(String data) { // 파일로부터 받아온 데이터를 배열에 저장합니다.
 		String[] datas = data.split("\n");
 		for (String str : datas) {
 			String[] splitted = str.split("/");
@@ -96,6 +96,7 @@ public class CartDAO {
 	}
 
 	public void showMyCart(ItemDAO itemDAO, User user) { // 로그인중인 유저가 장바구니에 담은 객체만 출력합니다.
+		System.out.println("=========================================================================");
 		int total = 0;
 		for (Cart c : cartList) {
 			if (user.getUserId().equals(c.getUserId())) {
@@ -108,6 +109,8 @@ public class CartDAO {
 				}
 			}
 		}
-		System.out.println("총 금액 : " + total);
+		System.out.println("=========================================================================");
+		System.out.printf("[ 총 금액 : %d ]\n", total);
+		System.out.println("=========================================================================");
 	}
 }

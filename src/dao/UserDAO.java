@@ -14,7 +14,7 @@ public class UserDAO {
 		im = InputManager.getInstance();
 	}
 
-	public void putDataIn(String data) { // 받아온 데이터를 배열에 저장합니다.
+	public void putDataIn(String data) { // 파일로부터 받아온 데이터를 배열에 저장합니다.
 		String[] datas = data.split("\n");
 		for (String str : datas) {
 			String[] splitted = str.split("/");
