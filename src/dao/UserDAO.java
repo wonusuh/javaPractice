@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import Utils.InputManager;
 import vo.User;
@@ -73,15 +75,40 @@ public class UserDAO {
 
 	public void signUp() { // id를 입력받아 회원 인스턴스 한 명을 배열에 추가합니다.
 		System.out.println("[ 가입하기 ]");
+		System.out.println("아이디는 알파벳과 숫자만 사용할 수 있습니다.(4~10)글자");
 		System.out.print("id를 입력하세요. >> ");
 		String id = im.sc.next();
 		im.sc.nextLine();
+		Pattern p = Pattern.compile("^[a-zA-Z0-9]{4,10}$");
+		Matcher m = p.matcher(id);
+		if (!m.matches()) {
+			System.out.println("id양식을 확인하세요.");
+			return;
+		}
 		if (findAUserById(id) != null)
 			return;
+		System.out.println("===================================================");
+		System.out.println("pw는 공백을 포함할 수 없습니다.(4~10)글자.");
 		System.out.print("pw를 입력하세요. >> ");
 		String pw = im.sc.next();
+		im.sc.nextLine();
+		p = Pattern.compile("^[^ ]{4,10}$");
+		m = p.matcher(pw);
+		if (!m.matches()) {
+			System.out.println("PW양식을 확인하세요.");
+			return;
+		}
+		System.out.println("===================================================");
+		System.out.println("name은 공백이나 특수문자를 포함할 수 없습니다.");
 		System.out.print("name를 입력하세요. >> ");
 		String name = im.sc.next();
+		im.sc.nextLine();
+		p = Pattern.compile("^[0-9a-zA-Z가-힣]{4,10}$");
+		m = p.matcher(name);
+		if (!m.matches()) {
+			System.out.println("name양식을 확인하세요.");
+			return;
+		}
 		User temp = new User();
 		temp.setUserId(id);
 		temp.setUserPw(pw);

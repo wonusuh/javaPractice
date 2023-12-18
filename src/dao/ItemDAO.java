@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import Utils.InputManager;
 import vo.Item;
@@ -60,12 +62,25 @@ public class ItemDAO {
 	}
 
 	private void addAnItem() { // itemList에 한 개 추가합니다.
-		System.out.print("카테고리를 입력하세요. >> ");
+		System.out.println("카테고리는 특수문자를 포함할 수 없습니다.(1~10)글자");
+		System.out.print("추가할 아이템의 카테고리를 입력하세요. >> ");
 		String category = im.sc.next();
 		im.sc.nextLine();
+		Pattern p = Pattern.compile("^[ 0-9a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]{1,10}$");
+		Matcher m = p.matcher(category);
+		if (!m.matches()) {
+			System.out.println("카테고리 양식을 확인하세요.");
+			return;
+		}
+		System.out.println("아이템의 이름은 특수문자를 포함할 수 없습니다.(1~10)글자");
 		System.out.print("추가할 아이템의 이름을 입력하세요. >> ");
 		String itemName = im.sc.next();
 		im.sc.nextLine();
+		m = p.matcher(itemName);
+		if (!m.matches()) {
+			System.out.println("아이템 이름의 양식을 확인하세요.");
+			return;
+		}
 		if (getAnItemByName(itemName) != null)
 			return;
 		System.out.print("아이템의 가격을 입력하세요. >> ");
