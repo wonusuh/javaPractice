@@ -1,65 +1,96 @@
 package ATM;
 
 public class Client {
-	int clientNo, numberOfAccounts; // clientNo : 1001부터 자동증가
-	String id, pw, name;
-	Account[] accounts;
+	private int clientNo; // clientNo : 1001부터 자동증가
+	protected int numberOfAccounts;
+	private String id, pw, name;
+	protected Account[] accounts;
 
-	Client() {
+	protected Client() {
 		this.accounts = new Account[3];
+	}
+
+	/**
+	 * @return the clientNo
+	 */
+	protected int getClientNo() {
+		return clientNo;
+	}
+
+	/**
+	 * @param clientNo the clientNo to set
+	 */
+	protected void setClientNo(int clientNo) {
+		this.clientNo = clientNo;
 	}
 
 	/**
 	 * @return the numberOfAccounts
 	 */
-	public int getNumberOfAccounts() {
+	protected int getNumberOfAccounts() {
 		return numberOfAccounts;
 	}
 
 	/**
 	 * @param numberOfAccounts the numberOfAccounts to set
 	 */
-	public void setNumberOfAccounts(int numberOfAccounts) {
+	protected void setNumberOfAccounts(int numberOfAccounts) {
 		this.numberOfAccounts = numberOfAccounts;
 	}
 
-	int getClientNo() {
-		return clientNo;
-	}
-
-	void setClientNo(int clientNo) {
-		this.clientNo = clientNo;
-	}
-
-	String getId() {
+	/**
+	 * @return the id
+	 */
+	protected String getId() {
 		return id;
 	}
 
-	void setId(String id) {
+	/**
+	 * @param id the id to set
+	 */
+	protected void setId(String id) {
 		this.id = id;
 	}
 
-	String getPw() {
+	/**
+	 * @return the pw
+	 */
+	protected String getPw() {
 		return pw;
 	}
 
-	void setPw(String pw) {
+	/**
+	 * @param pw the pw to set
+	 */
+	protected void setPw(String pw) {
 		this.pw = pw;
 	}
 
-	String getName() {
+	/**
+	 * @return the name
+	 */
+	protected String getName() {
 		return name;
 	}
 
-	void setName(String name) {
+	/**
+	 * @param name the name to set
+	 */
+	protected void setName(String name) {
 		this.name = name;
 	}
 
-	Account[] getAccounts() {
+	/**
+	 * @return the accounts
+	 */
+	protected Account[] getAccounts() {
 		return accounts;
 	}
 
-	void setAccounts(Account[] accounts) {
+	/**
+	 * @param accounts the accounts to set
+	 */
+	protected void setAccounts(Account[] accounts) {
 		this.accounts = accounts;
 	}
 }

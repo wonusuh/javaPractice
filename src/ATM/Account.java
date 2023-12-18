@@ -1,30 +1,48 @@
 package ATM;
 
 public class Account {
-	int money;
-	String id, accNumber;
+	private int money;
+	private String id, accNumber;
 
-	int getMoney() {
+	/**
+	 * @return the money
+	 */
+	protected int getMoney() {
 		return money;
 	}
 
-	void setMoney(int money) {
+	/**
+	 * @param money the money to set
+	 */
+	protected void setMoney(int money) {
 		this.money = money;
 	}
 
-	String getId() {
+	/**
+	 * @return the id
+	 */
+	protected String getId() {
 		return id;
 	}
 
-	void setId(String id) {
+	/**
+	 * @param id the id to set
+	 */
+	protected void setId(String id) {
 		this.id = id;
 	}
 
-	String getAccNumber() {
+	/**
+	 * @return the accNumber
+	 */
+	protected String getAccNumber() {
 		return accNumber;
 	}
 
-	void setAccNumber(String accNumber) {
+	/**
+	 * @param accNumber the accNumber to set
+	 */
+	protected void setAccNumber(String accNumber) {
 		this.accNumber = accNumber;
 	}
 }

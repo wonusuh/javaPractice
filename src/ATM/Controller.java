@@ -1,34 +1,34 @@
 package ATM;
 
 public class Controller {
-	final String bankName = "우리은행";
-	Util util;
-	ClientDAO clientDAO;
-	AccountDAO accountDAO;
+	private final String bankName = "우리은행";
+	private Util util;
+	protected ClientDAO clientDAO;
+	protected AccountDAO accountDAO;
 
-	Controller() { // 생성자
+	protected Controller() { // 생성자
 		clientDAO = new ClientDAO();
 		accountDAO = new AccountDAO();
 		util = new Util(this);
 		clientDAO.setAccountsToEachPerson(accountDAO.accounts);
 	}
 
-	void printBankName() { // 은행이름을 출력합니다.
+	private void printBankName() { // 은행이름을 출력합니다.
 		System.out.println("===========");
 		System.out.printf("[ %s ]\n", bankName);
 		System.out.println("===========");
 	}
 
-	void printMenu() { // 시작메뉴를 출력합니다.
+	private void printMenu() { // 시작메뉴를 출력합니다.
 		System.out.println("[1]관리자 [2]사용자 [0]종료");
 	}
 
-	void printAdminMenu() { // 관리자메뉴를 출력합니다.
+	private void printAdminMenu() { // 관리자메뉴를 출력합니다.
 		System.out.println("[ 관리자 메뉴 ]");
 		System.out.println("[1]회원 목록 [2]회원 수정 [3]회원 삭제 [4]데이터 저장 [5]데이터 로드 [0]뒤로가기");
 	}
 
-	void modifyAClient() { // 고객 한 명의 정보를 수정합니다.
+	private void modifyAClient() { // 고객 한 명의 정보를 수정합니다.
 		if (clientDAO.clients == null) {
 			System.out.println("고객정보가 존재하지 않습니다.");
 			return;
@@ -46,7 +46,7 @@ public class Controller {
 		}
 	}
 
-	void deleteAClient() { // 고객 한 명을 삭제합니다.
+	private void deleteAClient() { // 고객 한 명을 삭제합니다.
 		if (clientDAO.clients == null) {
 			System.out.println("고객정보가 존재하지 않습니다.");
 			return;
@@ -60,12 +60,12 @@ public class Controller {
 		}
 	}
 
-	void printClientMenu() { // 고객용 메뉴를 출력합니다.
+	private void printClientMenu() { // 고객용 메뉴를 출력합니다.
 		System.out.println("[ 고객 메뉴 ]");
 		System.out.println("[1]회원가입 [2]로그인 [0]뒤로가기");
 	}
 
-	Client signIn() { // id와 pw를 입력받아 해당 객체를 리턴합니다.
+	private Client signIn() { // id와 pw를 입력받아 해당 객체를 리턴합니다.
 		System.out.println("[ 로그인 ]");
 		System.out.println("id를 입력하세요. >> ");
 		Client c = clientDAO.findAClientById(util.sc.next());
@@ -86,12 +86,12 @@ public class Controller {
 		}
 	}
 
-	void showLoginMenu(Client c) { // 로그인중일 때의 메뉴를 출력합니다.
+	private void showLoginMenu(Client c) { // 로그인중일 때의 메뉴를 출력합니다.
 		System.out.printf("[ %s 로그인 중 ]\n", c.getName());
 		System.out.println("[1]계좌추가 [2]계좌삭제 [3]입금 [4]출금 [5]이체 [6]탈퇴 [7] 마이페이지 [0]로그아웃");
 	}
 
-	void addAnAccount(Client cl) { // 해당 객체에 계좌를 한 개 추가합니다.
+	private void addAnAccount(Client cl) { // 해당 객체에 계좌를 한 개 추가합니다.
 		System.out.println("[ 계좌 추가하기 ]");
 		System.out.println("다음과 같은 양식으로 계좌번호를 입력하세요.");
 		System.out.println("nnnn-nnnn-nnnn (총 12숫자)");
@@ -133,7 +133,7 @@ public class Controller {
 		}
 	}
 
-	void deposit(Client c) { // 로그인중인 고객의 계좌에 입금합니다.
+	private void deposit(Client c) { // 로그인중인 고객의 계좌에 입금합니다.
 		System.out.println("입금할 계좌를 입력하세요. >> ");
 		String acNum = util.sc.next();
 		util.sc.nextLine();
@@ -145,7 +145,8 @@ public class Controller {
 				System.out.println("100원 이상 입금하세요.");
 				return;
 			}
-			ac.money += money;
+//			ac.money += money;
+			ac.setMoney(ac.getMoney() + money);
 			System.out.println("입금했습니다");
 			System.out.printf("%s 잔고 : %d\n", ac.getAccNumber(), ac.getMoney());
 		} else {
@@ -153,7 +154,7 @@ public class Controller {
 		}
 	}
 
-	void withdraw(Client c) { // 로그인중인 고객의 계좌에서 출금합니다.
+	private void withdraw(Client c) { // 로그인중인 고객의 계좌에서 출금합니다.
 		System.out.println("출금할 계좌를 입력하세요. >> ");
 		String acNum = util.sc.next();
 		util.sc.nextLine();
@@ -169,7 +170,8 @@ public class Controller {
 				System.out.println("잔액이 부족합니다.");
 				return;
 			}
-			ac.money -= money;
+//			ac.money -= money;
+			ac.setMoney(ac.getMoney() - money);
 			System.out.println("출금했습니다");
 			System.out.printf("%s 잔고 : %d\n", ac.getAccNumber(), ac.getMoney());
 		} else {
@@ -177,7 +179,7 @@ public class Controller {
 		}
 	}
 
-	void transfer(Client c) { // 로그인중인 고객의 계좌중에서 다른 계좌로 이체합니다.
+	private void transfer(Client c) { // 로그인중인 고객의 계좌중에서 다른 계좌로 이체합니다.
 		System.out.println("이체를할 나의 계좌를 입력하세요. >> ");
 		String accNum = util.sc.next();
 		util.sc.nextLine();
@@ -217,7 +219,7 @@ public class Controller {
 		System.out.printf("[ %s ] 잔액 : %d\n", transferFrom.getAccNumber(), transferFrom.getMoney());
 	}
 
-	boolean leave(Client c) { // pw를 입력받아 탈퇴합니다.
+	private boolean leave(Client c) { // pw를 입력받아 탈퇴합니다.
 		System.out.println("pw를 입력하세요 >> ");
 		String pw = util.sc.next();
 		util.sc.nextLine();
@@ -253,7 +255,7 @@ public class Controller {
 	// 탈퇴 : 패스워드 다시 입력 -> 탈퇴 가능
 
 	// 마이페이지 : 내계좌 목록(+ 잔고 ) 확인
-	void run() {
+	protected void run() {
 		while (true) {
 			printBankName();
 			printMenu();
@@ -327,5 +329,6 @@ public class Controller {
 				break;
 			}
 		}
+		util.sc.close();
 	}
 }

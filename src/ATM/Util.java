@@ -9,20 +9,20 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Util {
-	Scanner sc;
-	final String CUR_PATH = System.getProperty("user.dir") + "//src//ATM//", CLIENTS_FILE = "client.txt",
+	public Scanner sc;
+	private final String CUR_PATH = System.getProperty("user.dir") + "//src//ATM//", CLIENTS_FILE = "client.txt",
 			ACCOUNTS_FILE = "account.txt";
 
-	Util() { // 기본생성자
+	protected Util() { // 기본 생성자
 		sc = new Scanner(System.in);
 	}
 
-	Util(Controller ctr) { // 생성자
+	protected Util(Controller ctr) { // 생성자
 		sc = new Scanner(System.in);
 		tempData(ctr);
 	}
 
-	int getValue(int start, int end) { // 정수 이외의 값을 입력하면 예외처리합니다.
+	protected int getValue(int start, int end) { // 정수 이외의 값을 입력하면 예외처리합니다.
 		while (true) {
 			System.out.printf("메뉴(%d ~ %d) >> ", start, end);
 			try {
@@ -39,7 +39,7 @@ public class Util {
 		}
 	}
 
-	void tempData(Controller ctr) { // 아래의 데이터를 DAO로 보냅니다.
+	private void tempData(Controller ctr) { // 아래의 데이터를 DAO로 보냅니다.
 		String userData = "1001/test01/pw1/김철수\n";
 		userData += "1002/test02/pw2/이영희\n";
 		userData += "1003/test03/pw3/신민수\n";
@@ -56,7 +56,7 @@ public class Util {
 		ctr.accountDAO.putTheDataIn(accountData);
 	}
 
-	void save(Client[] clients, Account[] accounts) { // 두 배열의 데이터를 파일에 저장합니다.
+	protected void save(Client[] clients, Account[] accounts) { // 두 배열의 데이터를 파일에 저장합니다.
 		try (FileWriter fw = new FileWriter(CUR_PATH + CLIENTS_FILE);
 				FileWriter fw2 = new FileWriter(CUR_PATH + ACCOUNTS_FILE)) {
 			String data = "";
@@ -81,7 +81,7 @@ public class Util {
 		}
 	}
 
-	String loadClients() { // client.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
+	protected String loadClients() { // client.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
 		File file1 = new File(CUR_PATH + CLIENTS_FILE);
 		if (!file1.exists()) {
 			System.err.printf("%s 이 존재해야합니다.", CLIENTS_FILE);
@@ -105,7 +105,7 @@ public class Util {
 		return data;
 	}
 
-	String loadAccounts() { // account.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
+	protected String loadAccounts() { // account.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
 		File file = new File(CUR_PATH + ACCOUNTS_FILE);
 		if (!file.exists()) {
 			System.err.printf("%s 이 존재해야합니다.", ACCOUNTS_FILE);
