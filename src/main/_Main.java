@@ -1,4 +1,6 @@
-package SchoolVer4_서원우;
+package main;
+
+import controller.Controller;
 
 public class _Main {
 	public static void main(String[] args) {

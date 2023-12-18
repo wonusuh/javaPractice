@@ -1,6 +1,12 @@
-package SchoolVer4_서원우;
+package DAOs;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import DTOs.Student;
+import DTOs.Subject;
+import utilites.Utils;
 
 public class SubjectDAO {
 
@@ -107,12 +113,16 @@ public class SubjectDAO {
 	}
 
 	public void addASubject(int hakbun, StudentDAO stuDAO) { // 해당하는 학번으로 과목을 추가합니다. 과목은 중복될 수 없습니다.
+		System.out.println("과목이름은 숫자, 한글, 알파벳만 포함할 수 있습니다.");
 		System.out.println("추가할 과목의 이름을 입력하세요. >> ");
-
 		String subName = Utils.sc.next();
-
 		Utils.sc.nextLine();
-
+		Pattern p = Pattern.compile("^[0-9a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]{1,10}$");
+		Matcher m = p.matcher(subName);
+		if (!m.matches()) {
+			System.out.println("과목이름의 양식을 확인하세요.");
+			return;
+		}
 		for (Subject s : subList) {
 
 			if (s.getStuNo() == hakbun && s.getSubName().equals(subName)) {
@@ -173,6 +183,7 @@ public class SubjectDAO {
 	}
 
 	public void deleteASubjectByHakbun(int hakbun) { // 학번과 과목을 입력받아서 과목을 삭제합니다.
+		System.out.println("과목이름은 특수문자를 포함할 수 없습니다.");
 		System.out.println("과목을 입력하세요. >> ");
 		String subName = Utils.sc.next();
 		Utils.sc.nextLine();

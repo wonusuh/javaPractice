@@ -1,6 +1,11 @@
-package SchoolVer4_서원우;
+package DAOs;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import DTOs.Student;
+import utilites.Utils;
 
 public class StudentDAO {
 
@@ -43,23 +48,29 @@ public class StudentDAO {
 
 	public void addAStudent() { // 학생 한 명을 추가합니다.
 		System.out.println("[ 학생 추가 ]");
+		System.out.println("아이디는 공백과 특수문자를 포함할 수 없으며, 4~10글자 입니다.");
 		System.out.println("등록할 id를 입력하세요. >> ");
-
 		String id = Utils.sc.next();
-
 		Utils.sc.nextLine();
-
+		Pattern p = Pattern.compile("^[a-zA-Z0-9]{4,10}$");
+		Matcher m = p.matcher(id);
+		if (!m.matches()) {
+			System.out.println("id양식을 확인하세요.");
+			return;
+		}
 		int stuNum = findStuNumById(id);
-
 		if (stuNum == -1) {
+			System.out.println("이름은 알파벳 대소문자만 가능합니다.4~10글자");
 			System.out.println("등록할 이름을 입력하세요. >> ");
-
 			String name = Utils.sc.next();
-
 			Utils.sc.nextLine();
-
+			p = Pattern.compile("^[a-zA-Z]{4,10}$");
+			m = p.matcher(name);
+			if (!m.matches()) {
+				System.out.println("이름 양식을 확인하세요.");
+				return;
+			}
 			Student temp = new Student();
-
 			temp.setStuNo(hakbun);
 			temp.setStuName(name);
 			temp.setStuId(id);

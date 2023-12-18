@@ -1,4 +1,4 @@
-package SchoolVer4_서원우;
+package DTOs;
 
 public class Subject {
 

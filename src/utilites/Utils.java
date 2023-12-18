@@ -1,4 +1,4 @@
-package SchoolVer4_서원우;
+package utilites;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import DTOs.Student;
+import DTOs.Subject;
+
 public class Utils {
 	public static Scanner sc = new Scanner(System.in);
 	public static Random rn = new Random();
-	private static String CUR_PATH = System.getProperty("user.dir") + "//src//"
-			+ new Utils().getClass().getPackageName() + "//";
+	private static String CUR_PATH = System.getProperty("user.dir") + "//src//" + "//txtFiles//";
 
 	public static int getInput(int start, int end) { // 메뉴를 선택할 때 입력값의 예외를 처리합니다.
 		while (true) {
