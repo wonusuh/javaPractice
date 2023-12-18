@@ -1,33 +1,33 @@
-package ATM;
+package DTOs;
 
 public class Client {
 	private int clientNo; // clientNo : 1001부터 자동증가
-	protected int numberOfAccounts;
+	public int numberOfAccounts;
 	private String id, pw, name;
-	protected Account[] accounts;
+	public Account[] accounts;
 
-	protected Client() {
+	public Client() {
 		this.accounts = new Account[3];
 	}
 
 	/**
 	 * @return the clientNo
 	 */
-	protected int getClientNo() {
+	public int getClientNo() {
 		return clientNo;
 	}
 
 	/**
 	 * @param clientNo the clientNo to set
 	 */
-	protected void setClientNo(int clientNo) {
+	public void setClientNo(int clientNo) {
 		this.clientNo = clientNo;
 	}
 
 	/**
 	 * @return the numberOfAccounts
 	 */
-	protected int getNumberOfAccounts() {
+	public int getNumberOfAccounts() {
 		return numberOfAccounts;
 	}
 
@@ -41,56 +41,56 @@ public class Client {
 	/**
 	 * @return the id
 	 */
-	protected String getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	protected void setId(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the pw
 	 */
-	protected String getPw() {
+	public String getPw() {
 		return pw;
 	}
 
 	/**
 	 * @param pw the pw to set
 	 */
-	protected void setPw(String pw) {
+	public void setPw(String pw) {
 		this.pw = pw;
 	}
 
 	/**
 	 * @return the name
 	 */
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
 	 * @return the accounts
 	 */
-	protected Account[] getAccounts() {
+	public Account[] getAccounts() {
 		return accounts;
 	}
 
 	/**
 	 * @param accounts the accounts to set
 	 */
-	protected void setAccounts(Account[] accounts) {
+	public void setAccounts(Account[] accounts) {
 		this.accounts = accounts;
 	}
 }

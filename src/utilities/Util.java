@@ -1,4 +1,4 @@
-package ATM;
+package utilities;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,21 +8,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import DTOs.Account;
+import DTOs.Client;
+
 public class Util {
 	public Scanner sc;
-	private final String CUR_PATH = System.getProperty("user.dir") + "//src//ATM//", CLIENTS_FILE = "client.txt",
+	private final String CUR_PATH = System.getProperty("user.dir") + "//src//txtFiles//", CLIENTS_FILE = "client.txt",
 			ACCOUNTS_FILE = "account.txt";
+	private static final Util INSTANCE = new Util();
 
-	protected Util() { // 기본 생성자
+	private Util() {
 		sc = new Scanner(System.in);
 	}
 
-	protected Util(Controller ctr) { // 생성자
-		sc = new Scanner(System.in);
-		tempData(ctr);
+	public static Util getInstance() {
+		return INSTANCE;
 	}
 
-	protected int getValue(int start, int end) { // 정수 이외의 값을 입력하면 예외처리합니다.
+	public int getValue(int start, int end) { // 정수 이외의 값을 입력하면 예외처리합니다.
 		while (true) {
 			System.out.printf("메뉴(%d ~ %d) >> ", start, end);
 			try {
@@ -39,24 +42,24 @@ public class Util {
 		}
 	}
 
-	private void tempData(Controller ctr) { // 아래의 데이터를 DAO로 보냅니다.
-		String userData = "1001/test01/pw1/김철수\n";
-		userData += "1002/test02/pw2/이영희\n";
-		userData += "1003/test03/pw3/신민수\n";
-		userData += "1004/test04/pw4/최상민";
-		String accountData = "test01/1111-1111-1111/8000\n";
-		accountData += "test02/2222-2222-2222/5000\n";
-		accountData += "test01/3333-3333-3333/11000\n";
-		accountData += "test03/4444-4444-4444/9000\n";
-		accountData += "test01/5555-5555-5555/5400\n";
-		accountData += "test02/6666-6666-6666/1000\n";
-		accountData += "test03/7777-7777-7777/1000\n";
-		accountData += "test04/8888-8888-8888/1000\n";
-		ctr.clientDAO.putTheDataIn(userData);
-		ctr.accountDAO.putTheDataIn(accountData);
-	}
+//	private void tempData(Controller ctr) { // 아래의 데이터를 DAO로 보냅니다.
+//		String userData = "1001/test01/pw1/김철수\n";
+//		userData += "1002/test02/pw2/이영희\n";
+//		userData += "1003/test03/pw3/신민수\n";
+//		userData += "1004/test04/pw4/최상민";
+//		String accountData = "test01/1111-1111-1111/8000\n";
+//		accountData += "test02/2222-2222-2222/5000\n";
+//		accountData += "test01/3333-3333-3333/11000\n";
+//		accountData += "test03/4444-4444-4444/9000\n";
+//		accountData += "test01/5555-5555-5555/5400\n";
+//		accountData += "test02/6666-6666-6666/1000\n";
+//		accountData += "test03/7777-7777-7777/1000\n";
+//		accountData += "test04/8888-8888-8888/1000\n";
+//		ctr.clientDAO.putTheDataIn(userData);
+//		ctr.accountDAO.putTheDataIn(accountData);
+//	}
 
-	protected void save(Client[] clients, Account[] accounts) { // 두 배열의 데이터를 파일에 저장합니다.
+	public void save(Client[] clients, Account[] accounts) { // 두 배열의 데이터를 파일에 저장합니다.
 		try (FileWriter fw = new FileWriter(CUR_PATH + CLIENTS_FILE);
 				FileWriter fw2 = new FileWriter(CUR_PATH + ACCOUNTS_FILE)) {
 			String data = "";
@@ -81,7 +84,7 @@ public class Util {
 		}
 	}
 
-	protected String loadClients() { // client.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
+	public String loadClients() { // client.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
 		File file1 = new File(CUR_PATH + CLIENTS_FILE);
 		if (!file1.exists()) {
 			System.err.printf("%s 이 존재해야합니다.", CLIENTS_FILE);
@@ -105,7 +108,7 @@ public class Util {
 		return data;
 	}
 
-	protected String loadAccounts() { // account.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
+	public String loadAccounts() { // account.txt 파일에있는 데이터를 String에 저장하고 리턴합니다.
 		File file = new File(CUR_PATH + ACCOUNTS_FILE);
 		if (!file.exists()) {
 			System.err.printf("%s 이 존재해야합니다.", ACCOUNTS_FILE);
@@ -115,7 +118,6 @@ public class Util {
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
 			while (true) {
 				String oneLine = br.readLine();
-				System.out.println(oneLine);
 				if (oneLine == null)
 					break;
 				data += oneLine + "\n";

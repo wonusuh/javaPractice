@@ -1,16 +1,32 @@
-package ATM;
+package controller;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import DAOs.AccountDAO;
+import DAOs.ClientDAO;
+import DTOs.Account;
+import DTOs.Client;
+import utilities.Util;
 
 public class Controller {
 	private final String bankName = "우리은행";
 	private Util util;
-	protected ClientDAO clientDAO;
-	protected AccountDAO accountDAO;
+	public ClientDAO clientDAO;
+	public AccountDAO accountDAO;
 
-	protected Controller() { // 생성자
+	public Controller() { // 생성자
 		clientDAO = new ClientDAO();
 		accountDAO = new AccountDAO();
-		util = new Util(this);
-		clientDAO.setAccountsToEachPerson(accountDAO.accounts);
+		util = Util.getInstance();
+		String clientData = util.loadClients();
+		if (clientData != null && !clientData.equals(""))
+			clientDAO.putTheDataIn(clientData);
+		String accountData = util.loadAccounts();
+		if (accountData != null && !accountData.equals("")) {
+			accountDAO.putTheDataIn(accountData);
+			clientDAO.setAccountsToEachPerson(accountDAO.accounts);
+		}
 	}
 
 	private void printBankName() { // 은행이름을 출력합니다.
@@ -98,36 +114,24 @@ public class Controller {
 		System.out.print(">> ");
 		String ac = util.sc.next();
 		util.sc.nextLine();
+		Pattern p = Pattern.compile("^\\d{4}-\\d{4}-\\d{4}$");
+		Matcher m = p.matcher(ac);
+		if (!m.matches()) {
+			System.out.println("계좌 입력방식을 확인하세요.");
+			return;
+		}
 		Account foundAc = clientDAO.findAnAccountByAccNum(ac);
 		if (foundAc == null) {
-			if (ac.length() != 14) {
-				System.out.println("계좌는 -를 포함해서 14자리 여야합니다.");
+			if (cl.getNumberOfAccounts() >= 3) {
+				System.out.println("계좌는 3개를 초과할 수 없습니다.");
 				return;
 			}
-			if (!ac.substring(4, 5).equals("-") || !ac.substring(9, 10).equals("-")) {
-				System.out.println("-의 위치를 확인하세요.");
-				return;
-			}
-			String part1 = ac.substring(0, 4);
-			String part2 = ac.substring(5, 9);
-			String part3 = ac.substring(10, 14);
-			try {
-				Integer.parseInt(part1);
-				Integer.parseInt(part2);
-				Integer.parseInt(part3);
-				if (cl.getNumberOfAccounts() >= 3) {
-					System.out.println("계좌는 3개를 초과할 수 없습니다.");
-					return;
-				}
-				Account newAc = new Account();
-				newAc.setId(cl.getId());
-				newAc.setAccNumber(ac);
-				newAc.setMoney(1000);
-				cl.getAccounts()[cl.numberOfAccounts++] = newAc;
-				System.out.printf("계좌 추가 성공 %s \n", ac);
-			} catch (NumberFormatException e) {
-				System.out.println("숫자를 입력하세요.");
-			}
+			Account newAc = new Account();
+			newAc.setId(cl.getId());
+			newAc.setAccNumber(ac);
+			newAc.setMoney(1000);
+			cl.getAccounts()[cl.numberOfAccounts++] = newAc;
+			System.out.printf("계좌 추가 성공 %s \n", ac);
 		} else {
 			System.err.println("이미 사용중인 계좌입니다.");
 		}
@@ -255,7 +259,7 @@ public class Controller {
 	// 탈퇴 : 패스워드 다시 입력 -> 탈퇴 가능
 
 	// 마이페이지 : 내계좌 목록(+ 잔고 ) 확인
-	protected void run() {
+	public void run() {
 		while (true) {
 			printBankName();
 			printMenu();
