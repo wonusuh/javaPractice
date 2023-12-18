@@ -126,8 +126,9 @@ public class ShopController {
 				}
 			} else if (sel == 100) {
 				while (true) {
-					System.out.println("[1.아이템관리] [2.카테고리관리] [3.장바구니관리] [4.유저관리] [0.뒤로가기]");
-					int choice = im.getValue(0, 4);
+					System.out.println(
+							"[1. 아이템 관리] [2. 카테고리 관리] [3. 장바구니 관리] [4. 유저 관리] [5. 파일 저장] [6. 파일 로드] [0. 뒤로가기]");
+					int choice = im.getValue(0, 6);
 					if (choice == 1) {
 						itemDAO.manageItem(cartDAO);
 					} else if (choice == 2) {
@@ -138,6 +139,9 @@ public class ShopController {
 						userDAO.manageUser(cartDAO);
 					} else if (choice == 0) {
 						break;
+					} else if (choice == 5) { // 파일 저장
+						fm.saveData(itemDAO, userDAO, cartDAO);
+					} else if (choice == 6) { // 파일 로드
 					}
 				}
 			} else if (sel == 0) {
