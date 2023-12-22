@@ -1,6 +1,8 @@
 package _11컬렉션Member;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MemberDAO {
 	private MemberDAO() {
@@ -39,13 +41,6 @@ public class MemberDAO {
 		return true;
 	}
 
-	/**
-	 * @return the memberList
-	 */
-	public ArrayList<Member> getMemberList() {
-		return memberList;
-	}
-
 	public void deleteMember(String id, String pw) {
 		if (isValidId(id)) {
 			System.out.println("존재하지 않는 id입니다.");
@@ -79,5 +74,28 @@ public class MemberDAO {
 			System.out.println("존재하지 않는 id입니다.");
 			return;
 		}
+	}
+
+	public void showAllMember() {
+		List<Member> temp = memberList;
+		Collections.sort(temp);
+		for (Member m : temp) {
+			System.out.println(m.toString());
+		}
+	}
+
+	public ArrayList<Member> getMemberList() {
+		return this.memberList;
+	}
+
+	public void putDataIn(String data) {
+		memberList.clear();
+		String[] datas = data.split("\n");
+		for (int i = 0; i < datas.length; i += 1) {
+			String[] splitted = datas[i].split("/");
+			Member temp = new Member(splitted[0], splitted[1]);
+			memberList.add(temp);
+		}
+		System.out.println("데이터를 로드했습니다.");
 	}
 }

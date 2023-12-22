@@ -3,7 +3,7 @@ package _11컬렉션Member;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Controller { // 화면 -> url DAO 연결해주는 클래스
+public class Controller { // 화면 -> url(String value ) -> DAO 연결해주는 클래스
 	private Controller() {
 		init();
 	}

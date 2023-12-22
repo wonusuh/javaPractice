@@ -6,7 +6,7 @@ public class ActionModify implements Action {
 		System.out.println("[ 멤버의 pw를 수정합니다. ]");
 		MemberDAO dao = MemberDAO.getInstance();
 		if (dao.getMemberList().size() == 0) {
-			System.out.println("멤버가 아무도 없습니다.");
+			System.out.println("멤버가 존재하지 않습니다.");
 			return;
 		}
 		System.out.println("id를 입력하세요. >> ");
