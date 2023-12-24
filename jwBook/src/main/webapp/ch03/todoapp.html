@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>실습 3-2</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<script>
+		function addItem() {
+			// <ul>을 참조하여 변수 list에 저장
+			let list = document.getElementById("todolist")
+
+			// 내가 추가할 할 일을 읽어와 변수 todo에 저장
+			let todo = document.getElementById("item");
+
+			// 새로운 <li> 요소를 생성하여 변수 listitem에 저장
+			let listitem = document.createElement("li");
+
+			// 새로운 목록에 디자인을 적용
+			listitem.className = "d-flex list-group-item list-group-item-action list-group-item-warning";
+
+			// <li>에 들어갈 닫기 버튼 만들기
+			let xbtn = document.createElement("button");
+
+			// 버튼에 부트스트랩 클래스 적용
+			xbtn.className = "btn-close ms-auto";
+
+			// close 버튼에 이벤트 처리
+			xbtn.onclick = function (e) {
+				// 삭제버튼이 눌려진 노드를 변수 pnode에 할당
+				let pnode = e.target.parentNode;
+
+				// 이벤트가 발생한 <li>요소를 <ul>로부터 제거
+				list.removeChild(pnode);
+			}
+
+			// input에 입력한 값을 <li>태그안에 추가
+			listitem.innerText = todo.value;
+
+			// 버튼을 <li>에 적용
+			listitem.appendChild(xbtn);
+
+			// <ul>안에 <li>들을 추가
+			list.appendChild(listitem);
+
+			// 추가가 끝났으면 입력칸 비우기
+			todo.value = "";
+
+			// 포커스 이동
+			todo.focus();
+		}
+	</script>
+</head>
+
+<body>
+	<div class="container bg-warning shadow mx-auto mt-5 p-5 w-75">
+		<h2>My ToDo App</h2>
+		<hr>
+		<div class="input-group">
+			<input id="item" class="form-control" type="text" placeholder="할 일을 입력하세요.">
+			<button type="button" class="btn btn-primary" onclick="addItem()">클릭해서 추가</button>
+		</div>
+		<hr>
+		<ul id="todolist" class="list-group"></ul>
+	</div>
+</body>
+
+</html>
