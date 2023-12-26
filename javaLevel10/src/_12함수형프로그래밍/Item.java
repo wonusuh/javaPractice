@@ -1,20 +1,20 @@
 package _12함수형프로그래밍;
 
-public class Item {
+public class Item implements Comparable<Item> {
 	private int num, price;
-	private String catrgory, name;
+	private String category, name;
 
 	/**
 	 * @param num
-	 * @param price
-	 * @param catrgory
 	 * @param name
+	 * @param category
+	 * @param price
 	 */
-	public Item(int num, int price, String catrgory, String name) {
+	public Item(int num, String category, String name, int price) {
 		super();
 		this.num = num;
 		this.price = price;
-		this.catrgory = catrgory;
+		this.category = category;
 		this.name = name;
 	}
 
@@ -47,17 +47,17 @@ public class Item {
 	}
 
 	/**
-	 * @return the catrgory
+	 * @return the category
 	 */
-	public String getCatrgory() {
-		return catrgory;
+	public String getCategory() {
+		return category;
 	}
 
 	/**
-	 * @param catrgory the catrgory to set
+	 * @param category the category to set
 	 */
-	public void setCatrgory(String catrgory) {
-		this.catrgory = catrgory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	/**
@@ -76,9 +76,27 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [num=" + num + ", price=" + price + ", catrgory=" + catrgory + ", name=" + name + ", getNum()="
-				+ getNum() + ", getPrice()=" + getPrice() + ", getCatrgory()=" + getCatrgory() + ", getName()="
-				+ getName() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "Item [num=" + num + ", price=" + price + ", category=" + category + ", name=" + name + "]";
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		if (this.num < o.num)
+			return -1;
+		else if (this.num > o.num)
+			return 1;
+		return 0;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this.num == ((Item) o).num)
+			return true;
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return num;
 	}
 }
