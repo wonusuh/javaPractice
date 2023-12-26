@@ -23,37 +23,31 @@ public class _06스트림_실습 {
 
 	public static void main(String[] args) {
 		List<Item> itemList = setData();
-		// 문제 1번 전체 출력
-		System.out.println("=====q1=====");
+		System.out.println("==========문제 1번 전체 출력==========");
 		Stream<Item> q1 = itemList.stream();
 		q1.forEach(System.out::println);
-		// 문제 2번 중복된 데이터 제거 후 출력
-		System.out.println("=====q2=====");
+		System.out.println("==========문제 2번 중복된 데이터 제거 후 출력==========");
 		Stream<Item> q2 = itemList.stream();
 		q2.distinct().forEach(System.out::println);
-		// 문제 3번 카테고리가 과자인 itemList 출력
-		System.out.println("=====q3=====");
+		System.out.println("==========문제 3번 카테고리가 과자인 itemList 출력==========");
 		Stream<Item> q3 = itemList.stream();
 		q3.filter(item -> item.getCategory().equals("과자")).forEach(System.out::println);
-		// 문제 4번 카테고리가 고기인 item 갯수 출력
-		System.out.println("=====q4=====");
+		System.out.println("==========문제 4번 카테고리가 고기인 item 갯수 출력==========");
 		Stream<Item> q4 = itemList.stream();
 		long cnt = q4.filter(item -> item.getCategory().equals("고기")).count();
 		System.out.println(cnt);
-		// 문제 5번 가격이 10000원 이상인 값들의 ArrayList<Item> 만들기
-		System.out.println("=====q5=====");
+		System.out.println("==========문제 5번 가격이 10000원 이상인 값들의 ArrayList<Item> 만들기==========");
 		Stream<Item> q5 = itemList.stream();
 		q5.filter(item -> item.getPrice() >= 10000).forEach(System.out::println);
-		// 문제 6번 카테고리가 고기인 아이템 이름들만 가져와서 ArrayList<String>으로 만들기
-		System.out.println("=====q6=====");
+		System.out.println("==========문제 6번 카테고리가 고기인 아이템 이름들만 가져와서 ArrayList<String>으로 만들기==========");
 		Stream<Item> q6 = itemList.stream();
-		q6.filter(item -> item.getCategory().equals("고기")).forEach(System.out::println);
-		// 문제 7번 아이템 번호로 정렬 후 출력
-		System.out.println("=====q7=====");
+		ArrayList<String> result = new ArrayList<String>();
+		q6.filter(item -> item.getCategory().equals("고기")).forEach(item -> result.add(item.getName()));
+		System.out.println(result);
+		System.out.println("==========문제 7번 아이템 번호로 정렬 후 출력==========");
 		Stream<Item> q7 = itemList.stream();
 		q7.sorted().forEach(System.out::println);
-		// 문제 8번 아이템 가격 순으로 정렬
-		System.out.println("=====q8=====");
+		System.out.println("==========문제 8번 아이템 가격 순으로 정렬==========");
 		Stream<Item> q8 = itemList.stream();
 		q8.sorted(Comparator.comparing(Item::getPrice)).forEach(System.out::println);
 	}
