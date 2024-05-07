@@ -1,0 +1,9 @@
+
+‡
+java:S1192?"FDefine a constant instead of duplicating this literal "error" 5 times.(È¥›ãùÿÿÿÿJ$b08e5d44-e8b1-42db-85c5-f49644c50459
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’•èÃJ$e030d816-a08e-40dc-853f-5bb5d88ddad8
+•	java:S116"URename this field "START_PAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘å’èÿÿÿÿÿJ$b1fa41fa-f97b-47de-a09f-14bcbb91d4a7
+b
+java:S1170"!Make this final field static too.(‘å’èÿÿÿÿÿJ$7765fa67-c7cf-4626-9c13-8c664ed6e9eb
+|	java:S125'"<This block of commented-out lines of code should be removed.(¢§ÑùÿÿÿÿJ$82f693f7-b42c-4182-9774-c8c6937c0f7d
+g	java:S106˜"+Replace this use of System.out by a logger.(ËÀØÅJ$37a5acbb-4f9d-4bb6-b2c8-518d9e34d4ea
