@@ -1,0 +1,12 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’•èÃ
+k	java:S116"VRename this field "JDBC_DRIVER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ÒåÄ
+m	java:S116"SRename this field "JDBC_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷Âî™ÿÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(°ÒåÄ
+<
+java:S1170"!Make this final field static too.(÷Âî™ÿÿÿÿÿ
+Q
+java:S6437"6Revoke and change this password, as it is compromised.(¸‚©îþÿÿÿÿ
+V	java:S125("<This block of commented-out lines of code should be removed.(õìÈÀøÿÿÿÿ
+V	java:S125@"<This block of commented-out lines of code should be removed.(õìÈÀøÿÿÿÿ
