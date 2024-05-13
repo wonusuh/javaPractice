@@ -5,3 +5,5 @@ I
 src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
 I
 src/main/webapp/hello.jsp,1\b\1b3fb2ce87c3816438f9d4d9c574c9a974a1eb02
+Y
+)src/main/webapp/WEB-INF/ch03/regform.html,1\9\19667612b710921ff7d57857ce0919c26acf1b8f
