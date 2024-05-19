@@ -1,11 +1,7 @@
 
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+a
+1src/main/java/com/basic/jwbook2/HelloServlet.java,7\6\76b92c7592186ead407689ede953473409712d90
 I
 src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
-Y
-)src/main/webapp/WEB-INF/ch03/regform.html,1\9\19667612b710921ff7d57857ce0919c26acf1b8f
-Y
-)src/main/webapp/WEB-INF/ch03/todoapp.html,4\1\41886f9157864e0e1c98bf330ed21d77b568c1a4
-N
-src/main/java/TestServlet.java,1\4\14c8f137b4faf90abde589151acb3f7b678115d3
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
