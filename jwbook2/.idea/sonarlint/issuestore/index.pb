@@ -13,3 +13,9 @@ Q
 !src/main/webapp/ch06/jspTotal.jsp,5\9\5998a99e7d292d41a2002bf20e9bfff80fd79eb7
 I
 src/main/webapp/hello.jsp,1\b\1b3fb2ce87c3816438f9d4d9c574c9a974a1eb02
+R
+"src/main/webapp/ch06/calcForm.html,8\f\8f87ab72a8c2011daa6249954cd43f76082f2d7e
+N
+src/main/webapp/ch06/calc.jspx,7\4\74cb19b259bdbd057f198add49601366c3d5101f
+N
+src/main/webapp/ch06/calc2.jsp,5\b\5b8cb9b6070c4571b83fc3f9aeee3bc346dff2c9
