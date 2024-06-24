@@ -30,6 +30,14 @@ R
 S
 #src/main/webapp/ch08/calcResult.jsp,d\8\d8f4fd64615aa9e018f71da75fd88077e525558d
 h
-8src/main/java/com/basic/jwbook2/ch08/CalcContorller.java,2\c\2cc0718b3e5bbdd44b281c65229acc2dfe2cb6fb
-h
 8src/main/java/com/basic/jwbook2/ch08/CalcController.java,9\c\9c36e6ae32d2d9a21cab7647bfa334eb1ac36872
+T
+$src/main/webapp/ch08/productList.jsp,7\4\745201c21f3363be01eafa62b78bfb428122f34c
+T
+$src/main/webapp/ch08/productInfo.jsp,a\1\a14e83285899e97a22becaab8c9b2325e6d19d48
+a
+1src/main/java/com/basic/jwbook2/ch08/Product.java,5\9\596c66c8b1138a8931079d8e0e17724f6c5f5946
+h
+8src/main/java/com/basic/jwbook2/ch08/ProductService.java,5\6\568d5ff5a9d9a29bf31e06718a99c4357c08b314
+k
+;src/main/java/com/basic/jwbook2/ch08/ProductController.java,d\7\d7857c4698cb174273a110b619ab4773dbad8e40
