@@ -1,10 +1,10 @@
 
-W
-java:S1161":Add the "@Override" annotation above this method signature(®´š¥8™ÂÔâ„2
-m
-java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(ë´åİşÿÿÿÿ8¨ÂÔâ„2
-C	java:S131""Add a default case to this switch.(ë´åİşÿÿÿÿ8©ÂÔâ„2
-M
-java:S1172*"+Remove this unused method parameter "resp".(ºåÅ£ùÿÿÿÿ8©ÂÔâ„2
-M
-java:S1172/"+Remove this unused method parameter "resp".(˜šöÄıÿÿÿÿ8©ÂÔâ„2
+}
+java:S1161":Add the "@Override" annotation above this method signature(®´š¥8™ÂÔâ„2J$6d7a6606-9d74-4a41-805c-085196320c34
+“
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(ë´åİşÿÿÿÿ8¨ÂÔâ„2J$8a136503-fb2e-4345-a205-25217e6923aa
+i	java:S131""Add a default case to this switch.(ë´åİşÿÿÿÿ8©ÂÔâ„2J$dd94eac1-5ad4-4961-85e1-d653de5c18fe
+s
+java:S1172*"+Remove this unused method parameter "resp".(ºåÅ£ùÿÿÿÿ8©ÂÔâ„2J$a08ca1e9-7ad7-48cc-8c2a-971d2213f214
+s
+java:S1172/"+Remove this unused method parameter "resp".(˜šöÄıÿÿÿÿ8©ÂÔâ„2J$dd0abe2b-5fc3-4ffb-ac96-e11b63559429
