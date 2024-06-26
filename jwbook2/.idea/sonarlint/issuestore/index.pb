@@ -29,8 +29,6 @@ R
 "src/main/webapp/ch08/calcForm.html,f\a\fa28a706dccc28c611d19556eee9a0872c456059
 S
 #src/main/webapp/ch08/calcResult.jsp,d\8\d8f4fd64615aa9e018f71da75fd88077e525558d
-h
-8src/main/java/com/basic/jwbook2/ch08/CalcController.java,9\c\9c36e6ae32d2d9a21cab7647bfa334eb1ac36872
 T
 $src/main/webapp/ch08/productList.jsp,7\4\745201c21f3363be01eafa62b78bfb428122f34c
 T
