@@ -6,7 +6,8 @@ public class SelectionSort {
         for (int i = 0; i < a.length; i += 1) {
             int min = i;
             for (int j = i + 1; j < a.length; j += 1) {
-                if (a[min] > a[j]) {
+                System.out.println(i + ", " + j);
+                if (a[j] < a[min]) {
                     min = j;
                 }
             }
